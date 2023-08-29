@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>버디스토어</title>
+    <title>윜스토어</title>
     <c:set var="path" value="<%=request.getContextPath() %>" />
     <script src="./js/jquery-1.10.0.js"></script>
     <link rel="stylesheet" href="./vdo.css">
