@@ -24,6 +24,13 @@ public class AddProductProCtrl extends HttpServlet {
         String home = application.getContextPath();
         try {
             String saveDirectory = application.getRealPath("/storage"); //실제 저장 경로
+            File storageDirectory = new File(saveDirectory);
+            if (!storageDirectory.exists()) {
+                if (storageDirectory.mkdir()) {
+                    System.out.println("Storage directory created: " + saveDirectory);
+                }
+            }
+
             int maxSize = 1024*1024*10;     //10MB
             String encoding = "UTF-8";
 
