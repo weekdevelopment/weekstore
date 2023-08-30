@@ -1,0 +1,35 @@
+package edu.weekstore.controller.admin;
+
+import edu.weekstore.dto.Notice;
+import edu.weekstore.model.NoticeDAO;
+
+import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+@WebServlet("/AddNoticePro.do")
+public class AddNoticeProCtrl extends HttpServlet {
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //String title = request.getParameter("title");
+        //String content = request.getParameter("content");
+
+        Notice noti = new Notice();
+        //noti.setTitle(title);
+        noti.setTitle(request.getParameter("title"));
+        noti.setContent(request.getParameter("content"));
+
+        PrintWriter out = response.getWriter();
+
+        NoticeDAO dao = new NoticeDAO();
+        int a = dao.addNotice(noti);
+        if(a>0) {
+            response.sendRedirect("/AdminNoticeList.do");
+        } else {
+            //request.sendRedirect("/AddNotice.do");
+            out.println("<script>history.go(-1);</script>");
+        }
+    }
+}
