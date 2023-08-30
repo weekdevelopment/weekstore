@@ -8,7 +8,7 @@ import java.io.IOException;
 public class Main extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String user = "천재 main main";
+        String user = "천재 main main main";
 
         ServletContext application = request.getServletContext();
         String realPath = request.getSession().getServletContext().getRealPath("/");
