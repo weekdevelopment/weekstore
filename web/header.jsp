@@ -116,7 +116,7 @@
                 <ul class="navbar-nav">
                     <c:if test="${empty sid }">
                         <li class="nav-item">
-                            <a class="nav-link h-nav" href="#">장바구니</a>
+                            <a class="nav-link h-nav" href="${path1 }/CartList.do">장바구니</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link h-nav" href="${path1 }/Login.do">로그인</a>
@@ -127,7 +127,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link h-nav" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">고객만족센터</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">공지사항</a></li>
+                                <li><a class="dropdown-item" href="${path1 }/NoticeList.do">공지사항</a></li>
                                 <li><a class="dropdown-item" href="${path1 }/QnaList.do">QNA</a></li>
                                 <li><a class="dropdown-item" href="${path1 }/FaqList.do">FAQ</a></li>
                             </ul>
@@ -147,7 +147,7 @@
                     </c:if>
                     <c:if test="${!empty sid && sid ne 'admin'}">
                         <li class="nav-item"><a href="#" class="nav-link">찜목록</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">장바구니</a></li>
+                        <li class="nav-item"><a href="${path1 }/CartList.do" class="nav-link">장바구니</a></li>
                         <li class="nav-item"><a href="${path1 }/Mypage.do" class="nav-link">마이페이지</a></li>
                         <li class="nav-item"><a href="${path1 }/Logout.do" class="nav-link">로그아웃</a></li>
                         <li class="nav-item dropdown">
