@@ -30,5 +30,6 @@
     <orderEntry type="library" name="net.markenwerk.utils.json.parser" level="project" />
     <orderEntry type="library" name="cos" level="project" />
     <orderEntry type="library" name="crypto" level="project" />
+    <orderEntry type="library" name="servlets.cos" level="project" />
   </component>
 </module>
