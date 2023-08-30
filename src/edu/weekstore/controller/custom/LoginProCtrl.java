@@ -1,11 +1,14 @@
 package edu.weekstore.controller.custom;
 
 import edu.weekstore.model.CustomDAO;
-import edu.weekstore.util.AES256;
 
-import javax.servlet.*;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -13,6 +16,7 @@ import java.io.PrintWriter;
 public class LoginProCtrl extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println(":::::::::::::::LoginPro.do 도착");
         String id = request.getParameter("id");
         String pw = request.getParameter("pw");
         String msg = "로그인 메시지";
@@ -34,7 +38,7 @@ public class LoginProCtrl extends HttpServlet {
             session.setAttribute("sid", id);
             request.setAttribute("msg", msg);
             response.sendRedirect(request.getContextPath());
-            //response.sendRedirect("/pro02");
+            //response.sendRedirect("/");
             //view = request.getRequestDispatcher("/pro02");
             //view.forward(request, response);
         } else {

@@ -1,6 +1,6 @@
 package edu.weekstore.model;
 
-import edu.weekstore.dto.Notice;
+import edu.weekstore.dto.Winner;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,36 +9,36 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NoticeDAO {
+public class WinnerDAO {
     static Connection conn = null;
     static PreparedStatement pstmt = null;
     static ResultSet rs = null;
 
-    public List<Notice> getNoticeList(){
-        List<Notice> notiList = new ArrayList<>();
+    public List<Winner> getWinnerList(){
+        List<Winner> winnerList = new ArrayList<>();
         DBConnect con = new PostgreCon();
         try {
             conn = con.connect();
-            pstmt = conn.prepareStatement(DBConnect.NOTICE_SELECT_ALL);
+            pstmt = conn.prepareStatement(DBConnect.WINNER_SELECT_ALL);
             rs = pstmt.executeQuery();
             while(rs.next()){
-                Notice noti = new Notice();
-                noti.setNo(rs.getInt("no"));
-                noti.setTitle(rs.getString("title"));
-                noti.setContent(rs.getString("content"));
-                noti.setResdate(rs.getString("resdate"));
-                notiList.add(noti);
+                Winner winner = new Winner();
+                winner.setNo(rs.getInt("no"));
+                winner.setTitle(rs.getString("title"));
+                winner.setContent(rs.getString("content"));
+                winner.setResdate(rs.getString("resdate"));
+                winnerList.add(winner);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
             con.close(rs, pstmt, conn);
         }
-        return notiList;
+        return winnerList;
     }
 
-    public Notice getNotice(int no){
-        Notice noti = new Notice();
+    public Winner getWinner(int no){
+        Winner winner = new Winner();
         DBConnect con = new PostgreCon();
         conn = con.connect();
         if(conn!=null){
@@ -46,32 +46,32 @@ public class NoticeDAO {
         }
 
         try {
-            pstmt = conn.prepareStatement(DBConnect.NOTICE_SELECT_ONE);
+            pstmt = conn.prepareStatement(DBConnect.WINNER_SELECT_ONE);
             pstmt.setInt(1, no);
             rs = pstmt.executeQuery();
 
             if(rs.next()){
-                noti.setNo(rs.getInt("no"));
-                noti.setTitle(rs.getString("title"));
-                noti.setContent(rs.getString("content"));
-                noti.setResdate(rs.getString("resdate"));
+                winner.setNo(rs.getInt("no"));
+                winner.setTitle(rs.getString("title"));
+                winner.setContent(rs.getString("content"));
+                winner.setResdate(rs.getString("resdate"));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
             con.close(rs, pstmt, conn);
         }
-       return noti;
+        return winner;
     }
 
-    public int addNotice(Notice noti){
+    public int addWinner(Winner winner){
         int cnt = 0;
         DBConnect con = new PostgreCon();
         conn = con.connect();
         try {
-            pstmt = conn.prepareStatement(DBConnect.NOTICE_INSERT);
-            pstmt.setString(1, noti.getTitle());
-            pstmt.setString(2, noti.getContent());
+            pstmt = conn.prepareStatement(DBConnect.WINNER_INSERT);
+            pstmt.setString(1, winner.getTitle());
+            pstmt.setString(2, winner.getContent());
             cnt = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -81,7 +81,7 @@ public class NoticeDAO {
         return cnt;
     }
 
-    public int updateNotice(Notice noti){
+    public int updateWinner(Winner winner){
         int cnt = 0;
         DBConnect con = new PostgreCon();
         conn = con.connect();
@@ -89,12 +89,12 @@ public class NoticeDAO {
             System.out.println("PostgreSQL 연결 성공");
         }
 
-        String sql = "update notice set title=?, content=? where no=?";
+        String sql = "update winner set title=?, content=? where no=?";
         try {
             pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, noti.getTitle());
-            pstmt.setString(2, noti.getContent());
-            pstmt.setInt(3, noti.getNo());
+            pstmt.setString(1, winner.getTitle());
+            pstmt.setString(2, winner.getContent());
+            pstmt.setInt(3, winner.getNo());
             cnt = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -104,7 +104,7 @@ public class NoticeDAO {
         return cnt;
     }
 
-    public int deleteNotice(int no){
+    public int deleteWinner(int no){
         int cnt = 0;
         DBConnect con = new PostgreCon();
         conn = con.connect();
@@ -112,7 +112,7 @@ public class NoticeDAO {
             System.out.println("PostgreSQL 연결 성공");
         }
 
-        String sql = "delete from notice where no=?";
+        String sql = "delete from winner where no=?";
         try {
             pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, no);

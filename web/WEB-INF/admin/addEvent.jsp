@@ -6,16 +6,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>공지사항 글쓰기</title>
+    <title>이벤트 글쓰기</title>
     <c:set var="path" value="<%=request.getContextPath() %>" />
     <%@ include file="../../common.jsp"%>
     <style>
         #tb1 { width:960px; margin:40px auto; }
         #tb1 th { background-color: #1D7151;
-                color:#fff;
-                line-height: 60px;
-                text-align: center;
-                width: 90px;
+            color:#fff;
+            line-height: 60px;
+            text-align: center;
+            width: 90px;
         }
         .item1 { width:10%; }
         .item2 { width:70%; }
@@ -65,13 +65,19 @@
 <div class="container-fluid">
     <%@ include file="../../header.jsp"%>
     <div class="contents" style="min-height:100vh">
-        <h2 class="title">공지사항 등록</h2>
+        <h2 class="title">이벤트 등록하기</h2>
         <p class="msg">관리자만 이용가능합니다.</p>
         <div class="container">
             <div class="box_wrap">
-                <form action="${path }/AddNoticePro.do" method="post">
+                <form action="${path }/AddEventPro.do" method="post" enctype="multipart/form-data">
                     <table class="table" id="tb1">
                         <tbody>
+                        <tr>
+                            <th>사진</th>
+                            <td>
+                                <input type="file" name="img" id="img" accept="image/png, image/jpeg">
+                            </td>
+                        </tr>
                         <tr>
                             <th>제목</th>
                             <td>
@@ -89,7 +95,7 @@
                     </table>
                     <div class="group container">
                         <input type="submit" value="글 등록" class="btn"/>
-                        <a href="${path }/AdminNoticeList.do" class="btn">목록</a>
+                        <a href="${path }/AdminEventList.do" class="btn">목록으로</a>
                     </div>
                 </form>
             </div>

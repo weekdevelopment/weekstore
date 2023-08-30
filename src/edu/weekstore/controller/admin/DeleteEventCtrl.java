@@ -1,6 +1,6 @@
 package edu.weekstore.controller.admin;
 
-import edu.weekstore.model.NoticeDAO;
+import edu.weekstore.model.EventDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,19 +10,19 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/DeleteNotice.do")
-public class DeleteNoticeCtrl extends HttpServlet {
+@WebServlet("/DeleteEvent.do")
+public class DeleteEventCtrl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int no = Integer.parseInt(request.getParameter("no"));
 
-        NoticeDAO dao = new NoticeDAO();
-        int a = dao.deleteNotice(no);
+        EventDAO dao = new EventDAO();
+        int a = dao.deleteEvent(no);
 
         PrintWriter out = response.getWriter();
 
         if(a>0){
-            response.sendRedirect(request.getContextPath() + "/AdminNoticeList.do");
+            response.sendRedirect(request.getContextPath() + "/AdminEventList.do");
         } else {
             out.println("<script>history.go(-1);</script>");
         }

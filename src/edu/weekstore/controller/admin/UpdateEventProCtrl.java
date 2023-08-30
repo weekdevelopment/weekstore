@@ -1,7 +1,7 @@
 package edu.weekstore.controller.admin;
 
-import edu.weekstore.dto.Notice;
-import edu.weekstore.model.NoticeDAO;
+import edu.weekstore.dto.Event;
+import edu.weekstore.model.EventDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,24 +11,25 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/UpdateNoticePro.do")
-public class UpdateNoticeProCtrl extends HttpServlet {
+@WebServlet("/UpdateEventPro.do")
+public class UpdateEventProCtrl extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Notice noti = new Notice();
-        noti.setNo(Integer.parseInt(request.getParameter("no")));
-        noti.setTitle(request.getParameter("title"));
-        noti.setContent(request.getParameter("content"));
+        Event event = new Event();
+        event.setNo(Integer.parseInt(request.getParameter("no")));
+        event.setImg(request.getParameter(request.getParameter("img")));
+        event.setTitle(request.getParameter("title"));
+        event.setContent(request.getParameter("content"));
 
-        NoticeDAO dao = new NoticeDAO();
-        int a = dao.updateNotice(noti);
+        EventDAO dao = new EventDAO();
+        int a = dao.updateEvent(event);
 
         PrintWriter out = response.getWriter();
 
         if(a>0){
-            response.sendRedirect(request.getContextPath() + "/AdminNoticeList.do");
+            response.sendRedirect(request.getContextPath() + "/AdminEventList.do");
         } else {
             out.println("<script>history.go(-1);</script>");
         }
