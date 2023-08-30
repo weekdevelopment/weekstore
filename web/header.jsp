@@ -139,9 +139,9 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link h-nav" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">고객만족센터</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">공지사항</a></li>
+                                <li><a class="dropdown-item" href="${path1 }/NoticeList.do">공지사항</a></li>
                                 <li><a class="dropdown-item" href="${path1 }/QnaList.do">QNA</a></li>
-                                <li><a class="dropdown-item" href="#">FAQ</a></li>
+                                <li><a class="dropdown-item" href="${path1 }/FaqList.do">FAQ</a></li>
                             </ul>
                         </li>
                     </c:if>
@@ -166,35 +166,35 @@
         </div>
     </nav>
     <nav class="nav nav-pills nav-justified fixed-top" id="menu-bar" >
-<%--        <a class="nav-link active" aria-current="page" href="#">Active</a>--%>
+        <%--        <a class="nav-link active" aria-current="page" href="#">Active</a>--%>
         <li class="nav-item dropdown">
             <a class="nav-link" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">유ㆍ초등</a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="${path1 }/CateProList.do?cate=Q">유아 동화책</a></li>
+                <li><a class="dropdown-item" href="${path1 }/CateProList.do?cate=A">유아 동화책</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="${path1 }/CateProList.do?cate=A">초등 교과서</a></li>
-                <li><a class="dropdown-item" href="${path1 }/CateProList.do?cate=B">초등 참고서</a></li>
+                <li><a class="dropdown-item" href="${path1 }/CateProList.do?cate=B">초등 교과서</a></li>
+                <li><a class="dropdown-item" href="${path1 }/CateProList.do?cate=C">초등 참고서</a></li>
             </ul>
         </li>
         <p class="divider">|</p>
         <li class="nav-item dropdown">
             <a class="nav-link" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">중등</a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">중등 교과서</a></li>
-                <li><a class="dropdown-item" href="#">중등 참고서</a></li>
+                <li><a class="dropdown-item" href="${path1 }/CateProList.do?cate=D">중등 교과서</a></li>
+                <li><a class="dropdown-item" href="${path1 }/CateProList.do?cate=E">중등 참고서</a></li>
             </ul>
         </li>
         <p class="divider">|</p>
         <li class="nav-item dropdown">
             <a class="nav-link" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">고등</a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">고등 교과서</a></li>
-                <li><a class="dropdown-item" href="#">고등 참고서</a></li>
+                <li><a class="dropdown-item" href="${path1 }/CateProList.do?cate=F">고등 교과서</a></li>
+                <li><a class="dropdown-item" href="${path1 }/CateProList.do?cate=G">고등 참고서</a></li>
             </ul>
         </li>
         <p class="divider">|</p>
         <li class="nav-item dropdown">
-            <a class="nav-link" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">E-BOOK</a>
+            <a class="nav-link" data-bs-toggle="dropdown" href="${path1 }/CateProList.do?cate=H" role="button" aria-expanded="false">E-BOOK</a>
         </li>
         <p class="divider">|</p>
         <li class="nav-item dropdown">
