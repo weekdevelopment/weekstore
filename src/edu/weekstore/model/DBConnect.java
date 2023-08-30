@@ -100,8 +100,7 @@ public interface DBConnect {
     final static String QNA_SELECT_TITLE_RANGE = "select * from (select * from QNA where title like ? order by resdate desc limit 5 offset ?) as qna";
     final static String QNA_SELECT_CONTENT_RANGE = "select * from (select * from QNA where content like ? order by resdate desc limit 5 offset ? as qna";
     final static String QNA_SELECT_ALL_RANGE = "select * from (select * from QNA where title like ? or content like ? order by resdate desc limit 5 offset ?) as qna";
-
-
+    final static String FAQ_SELECT_ALL = "select * from faq order by fno";
     public Connection connect();
     public void close(PreparedStatement pstmt, Connection conn);
     public void close(ResultSet rs, PreparedStatement pstmt, Connection conn);
