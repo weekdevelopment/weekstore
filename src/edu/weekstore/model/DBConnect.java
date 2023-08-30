@@ -19,6 +19,8 @@ public interface DBConnect {
     final static String NOTICE_SELECT_CONTENT_RANGE = "select * from (select * from notice where content like ? order by resdate desc limit 5 offset ?) as notice";
     final static String NOTICE_SELECT_ALL_RANGE = "select * from (select * from notice where title like ? or content like ? order by resdate desc limit 5 offset ?) as notice";
 
+    final static String FAQ_SELECT_ALL = "select * from faq order by fno";
+
     final static String CUSTOM_SELECT_ALL = "select * from custom order by regdate desc";
     final static String CUSTOM_SELECT_ONE = "select * from custom where id=?";
     final static String CUSTOM_SELECT_LOG = "select * from custom where id=?";
@@ -73,7 +75,7 @@ public interface DBConnect {
 
     //재고 조회
     final static String INVENTORY_SELECT_ALL = "select * from inventory order by pno desc";
-    final static String INVENTORY_SELECT_ONE = " select a.pno, (a.amount-b.amount) AS amount from sel1 a, sel2 b  WHERE a.pno =?";
+    final static String INVENTORY_SELECT_ONE = " select * from inventory where pno=?";
     //final static String INVENTORY_SELECT_ONE = "select sum(amount) as amount from receive where pno=? group by pno";
 
     //입고 처리

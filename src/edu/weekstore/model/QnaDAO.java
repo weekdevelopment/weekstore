@@ -1,6 +1,6 @@
 package edu.weekstore.model;
 
-import edu.weekstore.dto.Notice;
+import edu.weekstore.dto.Qna;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,62 +9,70 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NoticeDAO {
+public class QnaDAO {
     static Connection conn = null;
     static PreparedStatement pstmt = null;
     static ResultSet rs = null;
 
-    public List<Notice> getNoticeList(){
-        List<Notice> notiList = new ArrayList<>();
+    public List<Qna> getQnaList(){
+        List<Qna> QnaList = new ArrayList<>();
+        DBConnect con = new MariaDBCon();
+
+        conn = con.connect();
+        try {
+            pstmt = conn.prepareStatement(DBConnect.QNA_SELECT_ALL);
+            rs = pstmt.executeQuery();
+            while (rs.next()) {
+                Qna qna = new Qna();
+                qna.setQno(rs.getInt("qno"));
+                qna.setTitle(rs.getString("title"));
+                qna.setContent(rs.getString("content"));
+                qna.setAuthor(rs.getString("author"));
+                qna.setResdate(rs.getString("resdate"));
+                qna.setCnt(rs.getInt("cnt"));
+                qna.setLev(rs.getInt("lev"));
+                qna.setPar(rs.getInt("par"));
+                qna.setName(rs.getString("name"));
+                QnaList.add(qna);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        finally {
+            con.close(rs, pstmt, conn);
+        }
+        return QnaList;
+    }
+    public List<Qna> getQnaList(int qno){
+        List<Qna> QnaList = new ArrayList<>();
         DBConnect con = new MariaDBCon();
         try {
             conn = con.connect();
-            pstmt = conn.prepareStatement(DBConnect.NOTICE_SELECT_ALL);
+            pstmt = conn.prepareStatement(DBConnect.QNA_SELECT_RANGE);
+            pstmt.setInt(1, qno);
             rs = pstmt.executeQuery();
             while(rs.next()){
-                Notice noti = new Notice();
-                noti.setNo(rs.getInt("no"));
-                noti.setTitle(rs.getString("title"));
-                noti.setContent(rs.getString("content"));
-                noti.setResdate(rs.getString("resdate"));
-                noti.setVisited(rs.getInt("visited"));
-                notiList.add(noti);
+                Qna qna = new Qna();
+                qna.setQno(rs.getInt("qno"));
+                qna.setTitle(rs.getString("title"));
+                qna.setContent(rs.getString("content"));
+                qna.setResdate(rs.getString("resdate"));
+                qna.setAuthor(rs.getString("author"));
+                qna.setCnt(rs.getInt("cnt"));
+                qna.setLev(rs.getInt("lev"));
+                qna.setPar(rs.getInt("par"));
+                QnaList.add(qna);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
             con.close(rs, pstmt, conn);
         }
-        return notiList;
+        return QnaList;
     }
 
-    public List<Notice> getNoticeList(int no){
-        List<Notice> notiList = new ArrayList<>();
-        DBConnect con = new MariaDBCon();
-        try {
-            conn = con.connect();
-            pstmt = conn.prepareStatement(DBConnect.NOTICE_SELECT_RANGE);
-            pstmt.setInt(1, no);
-            rs = pstmt.executeQuery();
-            while(rs.next()){
-                Notice noti = new Notice();
-                noti.setNo(rs.getInt("no"));
-                noti.setTitle(rs.getString("title"));
-                noti.setContent(rs.getString("content"));
-                noti.setResdate(rs.getString("resdate"));
-                noti.setVisited(rs.getInt("visited"));
-                notiList.add(noti);
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-            con.close(rs, pstmt, conn);
-        }
-        return notiList;
-    }
-
-    public Notice getNotice(int no){
-        Notice noti = new Notice();
+    public Qna getQna(int qno){
+        Qna qna = new Qna();
         DBConnect con = new MariaDBCon();
         conn = con.connect();
         if(conn!=null){
@@ -72,33 +80,40 @@ public class NoticeDAO {
         }
 
         try {
-            pstmt = conn.prepareStatement(DBConnect.NOTICE_SELECT_ONE);
-            pstmt.setInt(1, no);
+            pstmt = conn.prepareStatement(DBConnect.QNA_SELECT_ONE);
+            pstmt.setInt(1, qno);
             rs = pstmt.executeQuery();
 
             if(rs.next()){
-                noti.setNo(rs.getInt("no"));
-                noti.setTitle(rs.getString("title"));
-                noti.setContent(rs.getString("content"));
-                noti.setResdate(rs.getString("resdate"));
-                noti.setVisited(rs.getInt("visited"));
+                qna.setQno(rs.getInt("qno"));
+                qna.setTitle(rs.getString("title"));
+                qna.setContent(rs.getString("content"));
+                qna.setResdate(rs.getString("resdate"));
+                qna.setAuthor(rs.getString("author"));
+                qna.setQno(rs.getInt("lev"));
+                qna.setQno(rs.getInt("par"));
+                qna.setCnt(rs.getInt("cnt"));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
             con.close(rs, pstmt, conn);
         }
-       return noti;
+       return qna;
     }
 
-    public int addNotice(Notice noti){
+    public int addQna(Qna qna){
         int cnt = 0;
         DBConnect con = new MariaDBCon();
         conn = con.connect();
         try {
-            pstmt = conn.prepareStatement(DBConnect.NOTICE_INSERT);
-            pstmt.setString(1, noti.getTitle());
-            pstmt.setString(2, noti.getContent());
+            pstmt = conn.prepareStatement(DBConnect.QNA_INSERT);
+            pstmt.setString(1, qna.getTitle());
+            pstmt.setString(2, qna.getContent());
+            pstmt.setString(3, qna.getAuthor());
+            pstmt.setInt(4, qna.getLev());
+            pstmt.setInt(5, qna.getPar());
+
             cnt = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -108,7 +123,7 @@ public class NoticeDAO {
         return cnt;
     }
 
-    public int updateNotice(Notice noti){
+    public int updateQna(Qna qna){
         int cnt = 0;
         DBConnect con = new MariaDBCon();
         conn = con.connect();
@@ -116,12 +131,13 @@ public class NoticeDAO {
             System.out.println("PostgreSQL 연결 성공");
         }
 
-        String sql = "update notice set title=?, content=? where no=?";
+        String sql = "update qna set title=?, content=?, author=? where qno=?";
         try {
             pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, "수정 DAO테스트1");
-            pstmt.setString(2, "수정 DAO테스트내용입니다.1");
-            pstmt.setInt(3, 3);
+            pstmt.setString(1, qna.getTitle());
+            pstmt.setString(2, qna.getContent());
+            pstmt.setString(3, qna.getAuthor());
+            pstmt.setInt(4, qna.getQno());
             cnt = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -131,7 +147,7 @@ public class NoticeDAO {
         return cnt;
     }
 
-    public int deleteNotice(int no){
+    public int deleteQna(int qno, int lev){
         int cnt = 0;
         DBConnect con = new MariaDBCon();
         conn = con.connect();
@@ -139,10 +155,15 @@ public class NoticeDAO {
             System.out.println("PostgreSQL 연결 성공");
         }
 
-        String sql = "delete from notice where no=?";
+        String sql = "";
+        if (lev == 0) {
+            sql = "delete from qna where par=?";    //삭제 대상이 질문글 일때
+        } else {
+            sql = "delete from qna where qno=?";    //삭제 대상이 답변글 일때
+        }
         try {
             pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, 5);
+            pstmt.setInt(1, qno);
             cnt = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -161,7 +182,7 @@ public class NoticeDAO {
         }
 
         try {
-            pstmt = conn.prepareStatement(DBConnect.NOTICE_COUNT);
+            pstmt = conn.prepareStatement(DBConnect.QNA_COUNT);
             rs = pstmt.executeQuery();
             if(rs.next()){
                 cnt = rs.getInt("cnt");
@@ -184,13 +205,13 @@ public class NoticeDAO {
 
         try {
             if(searchType.equals("title")) {
-                pstmt = conn.prepareStatement(DBConnect.NOTICE_COUNT_TITLE);
+                pstmt = conn.prepareStatement(DBConnect.QNA_COUNT_TITLE);
                 pstmt.setString(1, "%" + kwd + "%");
             } else if(searchType.equals("content")){
-                pstmt = conn.prepareStatement(DBConnect.NOTICE_COUNT_CONTENT);
+                pstmt = conn.prepareStatement(DBConnect.QNA_COUNT_CONTENT);
                 pstmt.setString(1, "%" + kwd + "%");
             } else {
-                pstmt = conn.prepareStatement(DBConnect.NOTICE_COUNT_ALL);
+                pstmt = conn.prepareStatement(DBConnect.QNA_COUNT_ALL);
                 pstmt.setString(1, "%" + kwd + "%");
                 pstmt.setString(2, "%" + kwd + "%");
             }
@@ -206,45 +227,46 @@ public class NoticeDAO {
         return cnt;
     }
 
-    public List<Notice> getNoticeList(String searchType, String kwd, int no) {
-        List<Notice> notiList = new ArrayList<>();
+    public List<Qna> getQnaList(String searchType, String kwd, int qno) {
+        List<Qna> qnaList = new ArrayList<>();
         DBConnect con = new MariaDBCon();
         try {
             conn = con.connect();
             if(searchType.equals("title")) {
-                pstmt = conn.prepareStatement(DBConnect.NOTICE_SELECT_TITLE_RANGE);
+                pstmt = conn.prepareStatement(DBConnect.QNA_SELECT_TITLE_RANGE);
                 pstmt.setString(1, "%"+kwd+"%");
-                pstmt.setInt(2, no);
+                pstmt.setInt(2, qno);
             } else if(searchType.equals("content")){
-                pstmt = conn.prepareStatement(DBConnect.NOTICE_SELECT_CONTENT_RANGE);
+                pstmt = conn.prepareStatement(DBConnect.QNA_SELECT_CONTENT_RANGE);
                 pstmt.setString(1, "%"+kwd+"%");
-                pstmt.setInt(2, no);
+                pstmt.setInt(2, qno);
             } else {
-                pstmt = conn.prepareStatement(DBConnect.NOTICE_SELECT_ALL_RANGE);
+                pstmt = conn.prepareStatement(DBConnect.QNA_SELECT_ALL_RANGE);
                 pstmt.setString(1, "%"+kwd+"%");
                 pstmt.setString(2, "%"+kwd+"%");
-                pstmt.setInt(3, no);
+                pstmt.setInt(3, qno);
             }
             rs = pstmt.executeQuery();
             while(rs.next()){
-                Notice noti = new Notice();
-                noti.setNo(rs.getInt("no"));
-                noti.setTitle(rs.getString("title"));
-                noti.setContent(rs.getString("content"));
-                noti.setResdate(rs.getString("resdate"));
-                noti.setVisited(rs.getInt("visited"));
-                notiList.add(noti);
+                Qna qna = new Qna();
+                qna.setQno(rs.getInt("qno"));
+                qna.setTitle(rs.getString("title"));
+                qna.setContent(rs.getString("content"));
+                qna.setResdate(rs.getString("resdate"));
+                qna.setCnt(rs.getInt("cnt"));
+                qnaList.add(qna);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
             con.close(rs, pstmt, conn);
         }
-        return notiList;
+        return qnaList;
     }
 
     public int getStartPost(String searchType, String kwd){
         int startPost = 0;
         return startPost;
     }
+
 }

@@ -77,8 +77,8 @@
                         <tr>
                             <th>가격</th>
                             <td>
-                                ${pro.price }
-                                <input type="hidden" name="sprice" id="sprice" value="${pro.price }">
+                                ${pro.price*1.35 }
+                                <input type="hidden" name="sprice" id="sprice" value="${pro.price*1.35 }">
                             </td>
                         </tr>
                         <tr>
