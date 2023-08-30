@@ -67,17 +67,16 @@ public interface DBConnect {
     //장바구니 기능
     final static String CART_INSERT = "insert into cart values (default,?,?,?)";
     final static String CART_SELECT_CID = "select * from cart where cid=?";
-    /*final static String CART_SELECT_CID = "select * from cart where cid=?";*/
-
-
 
     //결제 정보
-    final static String PAYMENT_SELECT_LIST ="select * from payment order by sno desc";
-    final static String PAYMENT_SELECT_ONE ="select * from payment where sno=?";
-    final static String PAYMENT_SELECT_CID ="select * from payment where cid=?";
+    final static String PAYMENT_SELECT_LIST = "select * from payment order by sno desc";
+    final static String PAYMENT_SELECT_ONE = "select * from payment where sno=?";
+    final static String PAYMENT_SELECT_CID = "select * from payment where cid=?";
     final static String SERVE_INSERT_RECEIVE = "insert into serve values(default, ?, ?, ?, default, default)";
 
     public Connection connect();
+
     public void close(PreparedStatement pstmt, Connection conn);
+
     public void close(ResultSet rs, PreparedStatement pstmt, Connection conn);
 }
