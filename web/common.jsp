@@ -18,4 +18,5 @@ body, html { width: 100%; }
 #ft { border-top:2px solid #333; margin-top: 20px; }
 .list { list-style: none; }
 .list li { margin-top: 24px; }
+.msg { text-align: center; }
 </style>

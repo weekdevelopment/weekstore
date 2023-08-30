@@ -1,19 +1,22 @@
 package edu.weekstore.controller;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
-public class Main {
-    public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
+import java.io.IOException;
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+public class Main extends HttpServlet {
+    @Override
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String user = "천재 김기태";
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+        ServletContext application = request.getServletContext();
+        String realPath = request.getSession().getServletContext().getRealPath("/");
+
+        application.setAttribute("realPath", realPath);  //${realPath }
+
+        request.setAttribute("user", user);
+        RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/index.jsp");
+        view.forward(request, response);
     }
 }

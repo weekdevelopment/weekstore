@@ -129,7 +129,7 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">공지사항</a></li>
                                 <li><a class="dropdown-item" href="${path1 }/QnaList.do">QNA</a></li>
-                                <li><a class="dropdown-item" href="#">FAQ</a></li>
+                                <li><a class="dropdown-item" href="${path1 }/FaqList.do">FAQ</a></li>
                             </ul>
                         </li>
                     </c:if>
@@ -157,7 +157,7 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="${path1 }/NoticeList.do">공지사항</a></li>
                                 <li><a class="dropdown-item" href="${path1 }/QnaList.do">QNA</a></li>
-                                <li><a class="dropdown-item" href="#">FAQ</a></li>
+                                <li><a class="dropdown-item" href="${path1 }/FaqList.do">FAQ</a></li>
                             </ul>
                         </li>
                     </c:if>
@@ -170,10 +170,10 @@
         <li class="nav-item dropdown">
             <a class="nav-link" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">유ㆍ초등</a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="${path1 }/CateProList.do?cate=A">유아 동화책</a></li>
+                <li><a class="dropdown-item" href="${path1 }/CateProList.do?cate=Q">유아 동화책</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">초등 교과서</a></li>
-                <li><a class="dropdown-item" href="#">초등 참고서</a></li>
+                <li><a class="dropdown-item" href="${path1 }/CateProList.do?cate=A">초등 교과서</a></li>
+                <li><a class="dropdown-item" href="${path1 }/CateProList.do?cate=B">초등 참고서</a></li>
             </ul>
         </li>
         <p class="divider">|</p>
