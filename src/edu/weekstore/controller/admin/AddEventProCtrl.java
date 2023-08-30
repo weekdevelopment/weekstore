@@ -38,6 +38,8 @@ public class AddEventProCtrl extends HttpServlet {
             event.setContent(mr.getParameter("content"));
             System.out.println(event.getContent());
 
+            // System.out.println("--");
+
             Enumeration files = mr.getFileNames();
             String item = (String) files.nextElement();
 
