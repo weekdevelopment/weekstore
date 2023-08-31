@@ -140,7 +140,7 @@
                 <hr>
                 <c:if test="${!empty sid}">
                 <div class="container">
-                    <a href="${path }/" class="btn btn-primary" style="background-color: #0B7B20">QNA 등록</a>
+                    <a href="${path }/AddQna.do?lev=0&par=0" class="btn btn-primary" style="background-color: #0B7B20">QNA 등록</a>
                 </div>
                 </c:if>
             </div>

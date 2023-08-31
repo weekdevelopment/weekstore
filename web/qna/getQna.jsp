@@ -70,6 +70,7 @@
                 <div class="btn-group">
                     <a href="${path }/QnaList.do" class="btn btn-primary" style="background-color: #0B7B20">QNA 목록</a>
                     <c:if test="${!empty sid}">
+                        <a href="${path }/AddQna.do?lev=1&par=${qna.qno }" class="btn btn-primary" style="background-color: #0B7B20">답변 등록</a>
                         <a href="${path }/" class="btn btn-primary" style="background-color: #0B7B20">수정</a>
                         <a href="${path }/" class="btn btn-primary" style="background-color: #0B7B20">삭제</a>
                     </c:if>
