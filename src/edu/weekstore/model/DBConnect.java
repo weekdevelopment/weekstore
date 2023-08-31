@@ -18,9 +18,6 @@ public interface DBConnect {
     final static String NOTICE_SELECT_TITLE_RANGE = "select * from (select * from notice where title like ? order by resdate desc limit 5 offset ?) as notice";
     final static String NOTICE_SELECT_CONTENT_RANGE = "select * from (select * from notice where content like ? order by resdate desc limit 5 offset ?) as notice";
     final static String NOTICE_SELECT_ALL_RANGE = "select * from (select * from notice where title like ? or content like ? order by resdate desc limit 5 offset ?) as notice";
-
-    final static String FAQ_SELECT_ALL = "select * from faq order by fno";
-
     final static String CUSTOM_SELECT_ALL = "select * from custom order by regdate desc";
     final static String CUSTOM_SELECT_ONE = "select * from custom where id=?";
     final static String CUSTOM_SELECT_LOG = "select * from custom where id=?";

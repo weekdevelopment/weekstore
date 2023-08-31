@@ -102,7 +102,11 @@
     .section {
         margin-top: 100px;
     }
-    .btn .btn-primary {
+    .btn-primary {
+        background-color: #0B7B20;
+        border-color: #0B7B20;
+    }
+    .btn-primary:hover {
         background-color: #0B7B20;
         border-color: #0B7B20;
     }

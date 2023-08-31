@@ -37,7 +37,7 @@
 </head>
 <body>
 <div class="container-fluid">
-    <%@ include file="../header.jsp"%>
+    <%@ include file="../../header.jsp"%>
     <div class="contents" style="min-height:100vh">
         <nav aria-label="breadcrumb container-fluid" style="padding-top:28px; border-bottom:2px solid #666;">
             <div class="container">
@@ -55,15 +55,15 @@
                     <tbody>
                     <tr>
                         <th>상품목록</th>
-                        <td><a href="" class="btn btn-success">상품목록</td>
+                        <td><a href="" class="btn btn-success">상품목록</a></td>
                     </tr>
                     <tr>
                         <th>상품등록</th>
-                        <td><a href="" class="btn btn-warning">상품등록</td>
+                        <td><a href="" class="btn btn-warning">상품등록</a></td>
                     </tr>
                     <tr>
                         <th>상품입고</th>
-                        <td><a href="" class="btn btn-danger">상품입고</td>
+                        <td><a href="${path2 }/AdminDeliveryList.do" class="btn btn-danger">상품입고</a></td>
                     </tr>
                     <tr>
                         <th>배송목록</th>
@@ -75,11 +75,11 @@
                     </tr>
                     <tr>
                         <th>공지사항목록</th>
-                        <td><a href="" class="btn btn-warning">공지사항목록</td>
+                        <td><a href="" class="btn btn-warning">공지사항목록</a></td>
                     </tr>
                     <tr>
                         <th>이벤트목록</th>
-                        <td><a href="" class="btn btn-danger">이벤트목록</td>
+                        <td><a href="" class="btn btn-danger">이벤트목록</a></td>
                     </tr>
                     </tbody>
                 </table>
@@ -89,7 +89,7 @@
             </div>
         </div>
     </div>
-    <%@ include file="../footer.jsp" %>
+    <%@ include file="../../footer.jsp" %>
 </div>
 </body>
 </html>
