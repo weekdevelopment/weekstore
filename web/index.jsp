@@ -72,9 +72,9 @@
             <section class="player">
                 <div class="vdo_fr">
                     <video id="video">
-                        <source src="images/demo.mp4" type="video/mp4" />
-                        <source src="images/demo.ogv" type="video/ogg" />
-                        <source src="./images/demo.webm" type="video/webm" />
+                        <source src="${path }/images/mv2.mp4" type="video/mp4" />
+                        <source src="${path }/images/mv2.ogv" type="video/ogg" />
+                        <source src="${path }/images/mv2.webm" type="video/webm" />
                     </video>
                 </div>
                 <div id="timebar">
@@ -112,9 +112,9 @@
             <section class="player2">
                 <div class="vdo_fr2">
                     <video id="video2">
-                        <source src="images/demo2.mp4" type="video/mp4" />
-                        <source src="images/demo2.ogv" type="video/ogg" />
-                        <source src="./images/demo2.webm" type="video/webm" />
+                        <source src="${path }/images/mv1.mp4" type="video/mp4" />
+                        <source src="${path }/images/mv1.ogv" type="video/ogg" />
+                        <source src="${path }/images/mv1.webm" type="video/webm" />
                     </video>
                 </div>
                 <div id="timebar2">
