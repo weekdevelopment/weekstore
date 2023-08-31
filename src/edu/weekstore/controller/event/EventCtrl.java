@@ -1,4 +1,7 @@
-package edu.weekstore.controller.admin;
+package edu.weekstore.controller.event;
+
+import edu.weekstore.dto.Event;
+import edu.weekstore.model.EventDAO;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,14 +11,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/Admin.do")
-public class AdminCtrl extends HttpServlet {
+@WebServlet("/Event.do")
+public class EventCtrl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String msg = "관리자페이지가 로딩되었습니다.";
-
-        request.setAttribute("msg", msg);
-        RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/admin/adminIndex.jsp");
+        int no = Integer.parseInt(request.getParameter("no"));
+        EventDAO dao = new EventDAO();
+        Event event = dao.getEvent(no);
+        request.setAttribute("event", event);
+        RequestDispatcher view = request.getRequestDispatcher("/event/getEvent.jsp");
         view.forward(request, response);
     }
 }

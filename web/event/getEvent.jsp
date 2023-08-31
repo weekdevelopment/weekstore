@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>공지사항 상세보기</title>
+    <title>이벤트 상세보기</title>
     <c:set var="path" value="<%=request.getContextPath() %>" />
     <%@ include file="../common.jsp"%>
 </head>
@@ -29,25 +29,31 @@
                         <tbody>
                         <tr>
                             <th class="th">번호</th>
-                            <td>${noti.no }</td>
+                            <td>${event.no }</td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td>
+                                <img src="${event.img}" alt="이벤트 이미지">
+                            </td>
                         </tr>
                         <tr>
                             <th class="th">제목</th>
-                            <td>${noti.title }</td>
+                            <td>${event.title }</td>
                         </tr>
                         <tr>
                             <th class="th">내용</th>
-                            <td>${noti.content }</td>
+                            <td>${event.content }</td>
                         </tr>
                         <tr>
                             <th class="th">등록일</th>
-                            <td>${noti.resdate }</td>
+                            <td>${event.resdate }</td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="btn-group" style="float: right">
-                    <a href="${path }/NoticeList.do" class="btn">목록으로</a>
+                    <a href="${path }/EventList.do" class="btn">목록으로</a>
                 </div>
             </div>
         </div>

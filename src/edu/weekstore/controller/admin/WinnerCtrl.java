@@ -1,5 +1,8 @@
 package edu.weekstore.controller.admin;
 
+import edu.weekstore.dto.Winner;
+import edu.weekstore.model.WinnerDAO;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,14 +11,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/Admin.do")
-public class AdminCtrl extends HttpServlet {
+@WebServlet("/AdminWinner.do")
+public class WinnerCtrl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String msg = "관리자페이지가 로딩되었습니다.";
+        int no = Integer.parseInt(request.getParameter("no"));
 
-        request.setAttribute("msg", msg);
-        RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/admin/adminIndex.jsp");
+        WinnerDAO dao = new WinnerDAO();
+        Winner winner = dao.getWinner(no);
+        request.setAttribute("winner", winner);
+        RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/admin/getWinner.jsp");
         view.forward(request, response);
     }
 }

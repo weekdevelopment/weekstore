@@ -7,8 +7,7 @@ import java.sql.ResultSet;
 public interface DBConnect {
     final static String NOTICE_SELECT_ALL = "select * from notice order by no desc";
     final static String NOTICE_SELECT_ONE = "select * from notice where no=?";
-    final static String NOTICE_INSERT = "insert into notice values (default,?,?,default,default);";
-    final static String NOTICE_SELECT_RANGE = "select * from (select * from notice order by no desc limit 5 offset ?) as notice";
+    final static String NOTICE_INSERT = "insert into notice values (default,?,?,default);";
     final static String NOTICE_UPDATE = "update notice set title=?, content=? where no=?";
     final static String NOTICE_DELETE = "delete from notice where no=?";
     final static String NOTICE_COUNT = "select count(*) as cnt from notice";
@@ -18,6 +17,22 @@ public interface DBConnect {
     final static String NOTICE_SELECT_TITLE_RANGE = "select * from (select * from notice where title like ? order by resdate desc limit 5 offset ?) as notice";
     final static String NOTICE_SELECT_CONTENT_RANGE = "select * from (select * from notice where content like ? order by resdate desc limit 5 offset ?) as notice";
     final static String NOTICE_SELECT_ALL_RANGE = "select * from (select * from notice where title like ? or content like ? order by resdate desc limit 5 offset ?) as notice";
+
+    final static String EVENT_SELECT_ALL = "select * from event order by no desc";
+    final static String EVENT_SELECT_ONE = "select * from event where no=?";
+    final static String EVENT_INSERT = "insert into event values (default,?,?,default, ?);";
+    final static String EVENT_UPDATE = "update event set title=?, content=? where no=?";
+    final static String EVENT_DELETE = "delete from event where no=?";
+
+    final static String WINNER_SELECT_ALL = "select * from winner order by no desc";
+    final static String WINNER_SELECT_ONE = "select * from winner where no=?";
+    final static String WINNER_INSERT = "insert into winner values (default,?,?,default);";
+    final static String WINNER_UPDATE = "update winner set title=?, content=? where no=?";
+    final static String WINNER_DELETE = "delete from winner where no=?";
+
+
+    final static String FAQ_SELECT_ALL = "select * from faq order by fno";
+
     final static String CUSTOM_SELECT_ALL = "select * from custom order by regdate desc";
     final static String CUSTOM_SELECT_ONE = "select * from custom where id=?";
     final static String CUSTOM_SELECT_LOG = "select * from custom where id=?";
@@ -99,8 +114,6 @@ public interface DBConnect {
     final static String QNA_SELECT_TITLE_RANGE = "select * from (select * from QNA where title like ? order by resdate desc limit 5 offset ?) as qna";
     final static String QNA_SELECT_CONTENT_RANGE = "select * from (select * from QNA where content like ? order by resdate desc limit 5 offset ? as qna";
     final static String QNA_SELECT_ALL_RANGE = "select * from (select * from QNA where title like ? or content like ? order by resdate desc limit 5 offset ?) as qna";
-
-    final static String FAQ_SELECT_ALL = "select * from faq order by fno desc";
 
     public Connection connect();
     public void close(PreparedStatement pstmt, Connection conn);
