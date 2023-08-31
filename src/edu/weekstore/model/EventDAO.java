@@ -16,7 +16,7 @@ public class EventDAO {
 
     public List<Event> getEventList(){
         List<Event> eventList = new ArrayList<>();
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         try {
             conn = con.connect();
             pstmt = conn.prepareStatement(DBConnect.EVENT_SELECT_ALL);
@@ -40,7 +40,7 @@ public class EventDAO {
 
     public Event getEvent(int no){
         Event event = new Event();
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         conn = con.connect();
         if(conn!=null){
             System.out.println("PostgreSQL 연결 성공");
@@ -68,7 +68,7 @@ public class EventDAO {
 
     public int addEvent(Event event){
         int cnt = 0;
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         conn = con.connect();
         try {
             pstmt = conn.prepareStatement(DBConnect.EVENT_INSERT);
@@ -86,7 +86,7 @@ public class EventDAO {
 
     public int updateEvent(Event event){
         int cnt = 0;
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         conn = con.connect();
         if(conn!=null){
             System.out.println("PostgreSQL 연결 성공");
@@ -110,7 +110,7 @@ public class EventDAO {
 
     public int deleteEvent(int no){
         int cnt = 0;
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         conn = con.connect();
         if(conn!=null){
             System.out.println("PostgreSQL 연결 성공");

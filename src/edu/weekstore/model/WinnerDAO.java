@@ -16,7 +16,7 @@ public class WinnerDAO {
 
     public List<Winner> getWinnerList(){
         List<Winner> winnerList = new ArrayList<>();
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         try {
             conn = con.connect();
             pstmt = conn.prepareStatement(DBConnect.WINNER_SELECT_ALL);
@@ -39,7 +39,7 @@ public class WinnerDAO {
 
     public Winner getWinner(int no){
         Winner winner = new Winner();
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         conn = con.connect();
         if(conn!=null){
             System.out.println("PostgreSQL 연결 성공");
@@ -66,7 +66,7 @@ public class WinnerDAO {
 
     public int addWinner(Winner winner){
         int cnt = 0;
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         conn = con.connect();
         try {
             pstmt = conn.prepareStatement(DBConnect.WINNER_INSERT);
@@ -83,7 +83,7 @@ public class WinnerDAO {
 
     public int updateWinner(Winner winner){
         int cnt = 0;
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         conn = con.connect();
         if(conn!=null){
             System.out.println("PostgreSQL 연결 성공");
@@ -106,7 +106,7 @@ public class WinnerDAO {
 
     public int deleteWinner(int no){
         int cnt = 0;
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         conn = con.connect();
         if(conn!=null){
             System.out.println("PostgreSQL 연결 성공");
