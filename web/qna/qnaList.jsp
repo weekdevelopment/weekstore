@@ -20,6 +20,9 @@
     #tb1 td {
         background-color: #d1e7dd;
     }
+    td a {
+        text-decoration-line: none;
+    }
     </style>
     <style>
         .btn_group { clear:both; width:800px; margin:20px auto; }
@@ -70,8 +73,9 @@
                     </thead>
                     <tbody>
                     <c:forEach var="qna" items="${qnaList }" varStatus="status">
+                        <c:set var="num" value="${num+1 }" />
                     <tr>
-                        <td class="item1">${qna.qno }</td>
+                        <td class="item1">${num }</td>
                         <td class="item2">
                             <c:if test="${qna.lev == 0}">
                                 <a href="${path }/Qna.do?qno=${qna.qno }&lev=${qna.lev }">${qna.title }</a>
