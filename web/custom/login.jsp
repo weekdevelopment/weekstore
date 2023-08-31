@@ -79,23 +79,10 @@
                         <input type="password" id="pw" name="pw" class="form-control form-control-lg"
                                placeholder="비밀번호를 입력해주세요." />
                     </div>
-
-                    <div class="d-flex justify-content-between align-items-center">
-                        <!-- Checkbox -->
-                        <div class="form-check mb-0">
-                            <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-                            <label class="form-check-label" for="form2Example3">
-                                자동로그인
-                            </label>
-                        </div>
-                        <a href="#!" class="text-body">비밀번호를 잊으셨나요?</a>
-                    </div>
-
                     <div class="text-center text-lg-start mt-4 pt-2">
                         <button type="submit" class="btn"
                                 style="padding-left: 2.5rem; padding-right: 2.5rem;">로그인하기</button>
-                        <p class="small fw-bold mt-2 pt-1 mb-0">계정이 없으신가요? <a href="#!"
-                                                                                          class="link-danger">회원가입</a></p>
+                        <p class="small fw-bold mt-2 pt-1 mb-0">계정이 없으신가요? <a href="${path }/Term.do" class="link-danger">회원가입</a></p>
                     </div>
 
                 </form>
