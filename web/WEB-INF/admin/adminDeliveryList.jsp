@@ -42,9 +42,6 @@
         </nav>
         <div class="container-fluid">
             <h2 class="title">배송 관리 리스트</h2>
-            <aside class="col-3">
-                <%@ include file="../../adminNav.jsp"%>
-            </aside>
             <article class="col-9">
 <%--                <form name="frm1" id="frm1" action="${path }/AddProductPro.do" method="post" enctype="multipart/form-data">--%>
 <%--                    <table class="table">--%>

@@ -25,9 +25,6 @@
         </nav>
         <div class="container-fluid">
             <h2 class="title">상품 정보</h2>
-            <aside class="col-3">
-                <%@ include file="../adminNav.jsp"%>
-            </aside>
             <article class="col-9">
                 <form name="frm1" id="frm1" action="${path }/UpdateProductPro.do" method="post" enctype="multipart/form-data">
                     <table class="table">
