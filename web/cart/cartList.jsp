@@ -11,12 +11,19 @@
     <%@ include file="../common.jsp"%>
     <style>
         #tb1 { width:960px; margin:40px auto; }
-        #tb1 th { background-color: #111; color:#fff; }
+        #tb1 th { background-color: #0B7B20; color:#fff; }
         .item1 { width:10%; }
         .item2 { width:70%; }
         .item3 { width:10%; }
         .item4 { width:10%; }
         #page-nation1 { width: 960px; margin:20px auto; }
+
+        #tb1 td {
+            background-color: #d1e7dd;
+        }
+        .btn-primary {
+            margin: 0px 158px;
+        }
     </style>
 </head>
 <body>
@@ -78,7 +85,7 @@
                                 </td>
                                 <td class="item3">
                                     ${cart.amount }
-                                    <a href="${path }/AddPayment.do?pno=${cart.pno }&from=cart"></a>
+                                    <a href="${path }/AddPayment.do?pno=${cart.pno }&from=cart" class="btn btn-primary">구매하기</a>
                                 </td>
                             </tr>
                         </c:forEach>
