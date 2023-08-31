@@ -163,8 +163,7 @@
                             </ul>
                         </li>
                     </c:if>
-                    <c:if test="${!empty sid && sid ne 'admin'}">
-                        <li class="nav-item"><a href="#" class="nav-link">찜목록</a></li>
+                    <c:if test="${!empty sid && sid ne 'admin'}">ㅊ
                         <li class="nav-item"><a href="${path1 }/CartList.do" class="nav-link">장바구니</a></li>
                         <li class="nav-item"><a href="${path1 }/Mypage.do" class="nav-link">마이페이지</a></li>
                         <li class="nav-item"><a href="${path1 }/Logout.do" class="nav-link">로그아웃</a></li>
