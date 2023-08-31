@@ -10,13 +10,14 @@
     <c:set var="path" value="<%=request.getContextPath() %>" />
     <%@ include file="../common.jsp"%>
     <style>
-    #tb1 { width:960px; margin:40px auto; }
-    #tb1 th { background-color: #111; color:#fff; }
-    .item1 { width:10%; }
-    .item2 { width:70%; }
-    .item3 { width:10%; }
-    .item4 { width:10%; }
-    #page-nation1 { width: 960px; margin:20px auto; }
+        #tb1 { width:960px; margin:40px auto; }
+        #tb1 th { background-color: darkgreen; color:#fff; }
+        .title { text-align: center; padding-top: 50px; padding-bottom: 100px; background-color: darkgreen; color: white; border-radius: 25px; margin-top: 10px; margin-bottom: 60px; }
+        .item1 { width:10%; }
+        .item2 { width:70%; }
+        .item3 { width:10%; }
+        .item4 { width:10%; }
+        #page-nation1 { width: 960px; margin:20px auto; }
     </style>
 </head>
 <body>
@@ -35,7 +36,7 @@
         <h2 class="title">내 정보보기</h2>
         <div class="container">
             <div class="box_wrap">
-                <table class="table table-secondary" id="tb1">
+                <table class="table table-success" id="tb1">
                     <tbody>
                     <tr>
                         <th>아이디</th>
@@ -50,12 +51,34 @@
                         <td>${cus.name }</td>
                     </tr>
                     <tr>
+                        <th>생년월일</th>
+                        <td>${cus.birth }</td>
+                    </tr>
+                    <tr>
                         <th>가입일시</th>
                         <td>${cus.regdate }</td>
                     </tr>
                     <tr>
+                        <th>가입구분</th>
+                        <td>
+                            <c:if test="${cus.job == 0}">
+                                학생
+                            </c:if>
+                            <c:if test="${cus.job == 1}">
+                                부모님
+                            </c:if>
+                            <c:if test="${cus.job == 2}">
+                                선생님
+                            </c:if>
+                        </td>
+                    </tr>
+                    <tr>
                         <th>이메일</th>
                         <td>${cus.email }</td>
+                    </tr>
+                    <tr>
+                        <th>주소</th>
+                        <td>${cus.addr }</td>
                     </tr>
                     <tr>
                         <th>연락처</th>
@@ -68,8 +91,8 @@
                     </tbody>
                 </table>
                 <div class="btn-group">
-                    <a href="${path }/MyinfoUpdate.do?id=${cus.id }" class="btn btn-primary">회원정보수정</a>
-                    <a href="${path }" class="btn btn-primary">메인으로</a>
+                    <a href="${path }/MyInfoUpdate.do?id=${cus.id }" class="btn btn-outline-success">회원정보수정</a>
+                    <a href="${path }" class="btn btn-outline-success">메인으로</a>
                 </div>
             </div>
         </div>
