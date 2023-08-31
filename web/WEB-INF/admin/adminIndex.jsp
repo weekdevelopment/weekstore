@@ -54,36 +54,25 @@
                 <table class="table table-success" id="tb1">
                     <tbody>
                     <tr>
-                        <th>상품목록</th>
-                        <td><a href="" class="btn btn-success">상품목록></a></td>
+                        <td><a href="${path }/ProList.do" class="btn">상품목록</a></td>
                     </tr>
                     <tr>
-                        <th>상품등록</th>
-                        <td><a href="" class="btn btn-warning">상품등록></a></td>
+                        <td><a href="${path }/AddProduct.do" class="btn">상품등록</a></td>
                     </tr>
                     <tr>
-                        <th>상품입고</th>
-                        <td><a href="" class="btn btn-danger">상품입고></a></td>
+                        <td><a href="${path }/AddReceive.do" class="btn">상품입고</a></td>
                     </tr>
                     <tr>
-                        <th>배송목록</th>
                         <td><a href="${path }/AdminDeliveryList.do" class="btn btn-primary">배송목록</a></td>
                     </tr>
                     <tr>
-                        <th>회원목록</th>
-                        <td><a href="" class="btn btn-success">회원목록</a></td>
+                        <td><a href="${path }/AdminNoticeList.do" class="btn btn-warning">공지사항목록</a></td>
                     </tr>
                     <tr>
-                        <th>공지사항목록</th>
-                        <td><a href="${path }/AdminNoticeList.do" class="btn btn-warning">공지사항목록></a></td>
+                        <td><a href="${path }/AdminEventList.do" class="btn btn-danger">이벤트목록</a></td>
                     </tr>
                     <tr>
-                        <th>이벤트목록</th>
-                        <td><a href="${path }/AdminEventList.do" class="btn btn-danger">이벤트목록></a></td>
-                    </tr>
-                    <tr>
-                        <th>당첨자발표</th>
-                        <td><a href="${path }/AdminWinnerList.do" class="btn btn-danger">당첨자목록></a></td>
+                        <td><a href="${path }/AdminWinnerList.do" class="btn btn-danger">당첨자목록</a></td>
                     </tr>
                     </tbody>
                 </table>
