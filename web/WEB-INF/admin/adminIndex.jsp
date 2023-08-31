@@ -37,7 +37,7 @@
 </head>
 <body>
 <div class="container-fluid">
-    <%@ include file="../header.jsp"%>
+    <%@ include file="../../header.jsp"%>
     <div class="contents" style="min-height:100vh">
         <nav aria-label="breadcrumb container-fluid" style="padding-top:28px; border-bottom:2px solid #666;">
             <div class="container">
@@ -89,7 +89,7 @@
             </div>
         </div>
     </div>
-    <%@ include file="../footer.jsp" %>
+    <%@ include file="../../footer.jsp" %>
 </div>
 </body>
 </html>
