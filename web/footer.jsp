@@ -181,33 +181,6 @@
     }
 </style>
 <footer class="ft" id="ft">
-    <div class="ft_wrap">
-        <nav class="ft_link">
-            <ul class="fnb">
-                <%--            <li class="ft_logo"></li>--%>
-                <li><a href="">제휴문의</a></li>
-                <li><a href="">개인정보처리방침</a></li>
-                <li><a href="">이용약관</a></li>
-                <li><a href="">이메일무단수집거부</a></li>
-            </ul>
-            <ul class="snb">
-                <li class="item1"><a href="">소셜1</a></li>
-                <li class="item2"><a href="">소셜2</a></li>
-                <li class="item3"><a href="">소셜3</a></li>
-                <li class="item4"><a href="">소셜4</a></li>
-                <li class="item5"><a href="">소셜5</a></li>
-            </ul>
-        </nav>
-        <script>
-            function loc() {
-                var url = document.getElementById("sel").value;
-                //location.href = url;  //현재 창에
-                if (url != "") {
-                    var win = window.open(url); //새창에
-                }
-            }
-        </script>
-    </div>
     <div class="ft_wrap2">
         <p class="copyright">
             <span>(주)Week</span>
