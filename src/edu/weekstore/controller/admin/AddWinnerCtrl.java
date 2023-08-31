@@ -1,7 +1,4 @@
-package edu.weekstore.controller.notice;
-
-import edu.weekstore.dto.Notice;
-import edu.weekstore.model.NoticeDAO;
+package edu.weekstore.controller.admin;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,15 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/Notice.do")
-public class NoticeCtrl extends HttpServlet {
+@WebServlet("/AddWinner.do")
+public class AddWinnerCtrl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int no = Integer.parseInt(request.getParameter("no"));
-        NoticeDAO dao = new NoticeDAO();
-        Notice noti = dao.getNotice(no);
-        request.setAttribute("noti", noti);
-        RequestDispatcher view = request.getRequestDispatcher("/notice/getNotice.jsp");
+        String msg = "관리자의 당첨자발표 글 등록폼이 로딩되었습니다.";
+
+        request.setAttribute("msg", msg);
+        RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/admin/addWinner.jsp");
         view.forward(request, response);
     }
 }

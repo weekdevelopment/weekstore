@@ -1,6 +1,6 @@
 package edu.weekstore.model;
 
-import edu.weekstore.dto.Notice;
+import edu.weekstore.dto.Event;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,36 +9,37 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NoticeDAO {
+public class EventDAO {
     static Connection conn = null;
     static PreparedStatement pstmt = null;
     static ResultSet rs = null;
 
-    public List<Notice> getNoticeList(){
-        List<Notice> notiList = new ArrayList<>();
+    public List<Event> getEventList(){
+        List<Event> eventList = new ArrayList<>();
         DBConnect con = new MariaDBCon();
         try {
             conn = con.connect();
-            pstmt = conn.prepareStatement(DBConnect.NOTICE_SELECT_ALL);
+            pstmt = conn.prepareStatement(DBConnect.EVENT_SELECT_ALL);
             rs = pstmt.executeQuery();
             while(rs.next()){
-                Notice noti = new Notice();
-                noti.setNo(rs.getInt("no"));
-                noti.setTitle(rs.getString("title"));
-                noti.setContent(rs.getString("content"));
-                noti.setResdate(rs.getString("resdate"));
-                notiList.add(noti);
+                Event event = new Event();
+                event.setImg(rs.getString("img"));
+                event.setNo(rs.getInt("no"));
+                event.setTitle(rs.getString("title"));
+                event.setContent(rs.getString("content"));
+                event.setResdate(rs.getString("resdate"));
+                eventList.add(event);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
             con.close(rs, pstmt, conn);
         }
-        return notiList;
+        return eventList;
     }
 
-    public Notice getNotice(int no){
-        Notice noti = new Notice();
+    public Event getEvent(int no){
+        Event event = new Event();
         DBConnect con = new MariaDBCon();
         conn = con.connect();
         if(conn!=null){
@@ -46,32 +47,34 @@ public class NoticeDAO {
         }
 
         try {
-            pstmt = conn.prepareStatement(DBConnect.NOTICE_SELECT_ONE);
+            pstmt = conn.prepareStatement(DBConnect.EVENT_SELECT_ONE);
             pstmt.setInt(1, no);
             rs = pstmt.executeQuery();
 
             if(rs.next()){
-                noti.setNo(rs.getInt("no"));
-                noti.setTitle(rs.getString("title"));
-                noti.setContent(rs.getString("content"));
-                noti.setResdate(rs.getString("resdate"));
+                event.setImg(rs.getString("img"));
+                event.setNo(rs.getInt("no"));
+                event.setTitle(rs.getString("title"));
+                event.setContent(rs.getString("content"));
+                event.setResdate(rs.getString("resdate"));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
             con.close(rs, pstmt, conn);
         }
-       return noti;
+        return event;
     }
 
-    public int addNotice(Notice noti){
+    public int addEvent(Event event){
         int cnt = 0;
         DBConnect con = new MariaDBCon();
         conn = con.connect();
         try {
-            pstmt = conn.prepareStatement(DBConnect.NOTICE_INSERT);
-            pstmt.setString(1, noti.getTitle());
-            pstmt.setString(2, noti.getContent());
+            pstmt = conn.prepareStatement(DBConnect.EVENT_INSERT);
+            pstmt.setString(1, event.getTitle());
+            pstmt.setString(2, event.getContent());
+            pstmt.setString(3, event.getImg());
             cnt = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -81,7 +84,7 @@ public class NoticeDAO {
         return cnt;
     }
 
-    public int updateNotice(Notice noti){
+    public int updateEvent(Event event){
         int cnt = 0;
         DBConnect con = new MariaDBCon();
         conn = con.connect();
@@ -89,12 +92,13 @@ public class NoticeDAO {
             System.out.println("PostgreSQL 연결 성공");
         }
 
-        String sql = "update notice set title=?, content=? where no=?";
+        String sql = "update event set img=?, title=?, content=? where no=?";
         try {
             pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, noti.getTitle());
-            pstmt.setString(2, noti.getContent());
-            pstmt.setInt(3, noti.getNo());
+            pstmt.setString(1, event.getImg());
+            pstmt.setString(2, event.getTitle());
+            pstmt.setString(3, event.getContent());
+            pstmt.setInt(4, event.getNo());
             cnt = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -104,7 +108,7 @@ public class NoticeDAO {
         return cnt;
     }
 
-    public int deleteNotice(int no){
+    public int deleteEvent(int no){
         int cnt = 0;
         DBConnect con = new MariaDBCon();
         conn = con.connect();
@@ -112,7 +116,7 @@ public class NoticeDAO {
             System.out.println("PostgreSQL 연결 성공");
         }
 
-        String sql = "delete from notice where no=?";
+        String sql = "delete from event where no=?";
         try {
             pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, no);

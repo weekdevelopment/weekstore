@@ -1,7 +1,7 @@
 package edu.weekstore.controller.admin;
 
-import edu.weekstore.dto.Notice;
-import edu.weekstore.model.NoticeDAO;
+import edu.weekstore.dto.Event;
+import edu.weekstore.model.EventDAO;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,20 +11,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/UpdateNotice.do")
-public class UpdateNoticeCtrl extends HttpServlet {
+@WebServlet("/UpdateEvent.do")
+public class UpdateEventCtrl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String msg = "공지사항의 내용을 수정합니다.";
+        String msg = "이벤트의 내용을 수정합니다.";
         int no = Integer.parseInt(request.getParameter("no"));
 
-        NoticeDAO dao = new NoticeDAO();
-        Notice noti = dao.getNotice(no);
+        EventDAO dao = new EventDAO();
+        Event event = dao.getEvent(no);
 
         request.setAttribute("msg", msg);
-        request.setAttribute("noti", noti);
+        request.setAttribute("event", event);
 
-        RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/admin/updateNotice.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/admin/updateEvent.jsp");
         view.forward(request,response);
     }
 }

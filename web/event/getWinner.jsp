@@ -6,17 +6,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>공지사항 상세보기</title>
+    <title></title>
     <c:set var="path" value="<%=request.getContextPath() %>" />
     <%@ include file="../common.jsp"%>
 </head>
-
-<style>
-    .th {
-        text-align: center;
-    }
-</style>
-
 <body>
 <div>
     <div class="container-fluid" style="min-height:100vh;">
@@ -28,26 +21,26 @@
                     <table class="table" id="tb1">
                         <tbody>
                         <tr>
-                            <th class="th">번호</th>
-                            <td>${noti.no }</td>
+                            <th>글 번호</th>
+                            <td>${winner.no }</td>
                         </tr>
                         <tr>
-                            <th class="th">제목</th>
-                            <td>${noti.title }</td>
+                            <th>글 제목</th>
+                            <td>${winner.title }</td>
                         </tr>
                         <tr>
-                            <th class="th">내용</th>
-                            <td>${noti.content }</td>
+                            <th>글 내용</th>
+                            <td>${winner.content }</td>
                         </tr>
                         <tr>
-                            <th class="th">등록일</th>
-                            <td>${noti.resdate }</td>
+                            <th>등록일</th>
+                            <td>${winner.resdate }</td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="btn-group" style="float: right">
-                    <a href="${path }/NoticeList.do" class="btn">목록으로</a>
+                    <a href="${path }/WinnerList.do" class="btn">목록으로</a>
                 </div>
             </div>
         </div>
