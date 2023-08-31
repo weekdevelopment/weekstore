@@ -2,7 +2,10 @@ package edu.weekstore.model;
 
 import edu.weekstore.dto.Notice;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +27,6 @@ public class NoticeDAO {
                 noti.setTitle(rs.getString("title"));
                 noti.setContent(rs.getString("content"));
                 noti.setResdate(rs.getString("resdate"));
-                noti.setVisited(rs.getInt("visited"));
                 notiList.add(noti);
             }
         } catch (SQLException e) {
@@ -53,7 +55,6 @@ public class NoticeDAO {
                 noti.setTitle(rs.getString("title"));
                 noti.setContent(rs.getString("content"));
                 noti.setResdate(rs.getString("resdate"));
-                noti.setVisited(rs.getInt("visited"));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -91,9 +92,9 @@ public class NoticeDAO {
         String sql = "update notice set title=?, content=? where no=?";
         try {
             pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, "수정 DAO테스트1");
-            pstmt.setString(2, "수정 DAO테스트내용입니다.1");
-            pstmt.setInt(3, 3);
+            pstmt.setString(1, noti.getTitle());
+            pstmt.setString(2, noti.getContent());
+            pstmt.setInt(3, noti.getNo());
             cnt = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -114,7 +115,7 @@ public class NoticeDAO {
         String sql = "delete from notice where no=?";
         try {
             pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, 5);
+            pstmt.setInt(1, no);
             cnt = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);

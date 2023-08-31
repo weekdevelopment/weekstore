@@ -9,61 +9,133 @@
     <title>공지사항 목록</title>
     <c:set var="path" value="<%=request.getContextPath() %>" />
     <%@ include file="../../common.jsp"%>
+
     <style>
-    #tb1 { width:960px; margin:40px auto; }
-    #tb1 th { background-color: #111; color:#fff; }
-    .item1 { width:10%; }
-    .item2 { width:70%; }
-    .item3 { width:10%; }
-    .item4 { width:10%; }
-    #page-nation1 { width: 960px; margin:20px auto; }
+
+        .title {
+            line-height: 55px;
+            margin-top: 55px;
+            text-align: center;
+        }
+
+        .box_wrap {
+            position: relative;
+            max-width: 1280px;
+            min-height: 450px;
+            margin: 50px auto 150px;
+        }
+
+        .notice-list th:nth-child(1) {
+            width: 12%;
+        }
+
+        .box_wrap {
+            border-top: 2px solid #666;
+        }
+
+        .box_wrap thead th {
+            padding: 15px 5px;
+            border-bottom: 1px solid #d0cfd5;
+            text-align: center;
+        }
+
+
+        .box_wrap tbody td {
+            padding: 15px 5px;
+            border-bottom: 1px solid #d0cfd5;
+            text-align: center;
+        }
+
+        .item2 .al{
+            text-decoration-line: none;
+            color: black;
+            display: block;
+            text-overflow: ellipsis;
+            max-height: 2.8em;
+            line-height: 1.4em;
+            word-wrap: break-word;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            word-break: keep-all;
+        }
+
+        .paginate {
+            list-style-type: none;
+            width: 100%;
+            margin-top: 40px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .paginate .page-item {
+            margin: 0 5px;
+        }
+
+        .paginate .page-link {
+            display: inline-block;
+            width: 34px;
+            height: 34px;
+            border: 1px solid #ddd;
+            background-color: #f8f9fa;
+            color: #333;
+            font-size: 14px;
+            line-height: 32px;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .paginate .page-link:hover {
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .item1, .item2, .item3 {
+            font-size: 18px;
+        }
+
+        .msg {
+            line-height: 12px;
+            text-align: center;
+        }
+
+        .btn {
+            border-radius: 20px;
+            margin: 30px;
+            padding: 10px;
+            float: right;
+            background-color: #1D7151;
+            border-color: #1D7151;
+            color: #ffffff;
+        }
+
+
+        #tb1 { width:960px; margin:40px auto; }
+        #tb1 th { background-color: #1D7151; color:#fff; }
+        .item1 { width:10%; }
+        .item2 { width:70%; }
+        .item3 { width:10%; }
+        #page-nation1 { width: 960px; margin:20px auto; }
     </style>
+
 </head>
 <body>
 <div class="container-fluid">
     <%@ include file="../../header.jsp"%>
     <div class="contents" style="min-height:100vh">
-        <div id="carouselExample" class="carousel slide">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="${path }/images/sub_vs01.jpg" class="d-block w-100" alt="천재교과서">
-                </div>
-                <div class="carousel-item">
-                    <img src="${path }/images/sub_vs02.jpg" class="d-block w-100" alt="천재문제집">
-                </div>
-                <div class="carousel-item">
-                    <img src="${path }/images/sub_vs03.jpg" class="d-block w-100" alt="천재참고서">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-        <nav aria-label="breadcrumb container-fluid" style="padding-top:28px; border-bottom:2px solid #666;">
-            <div class="container">
-                <ol class="breadcrumb justify-content-end">
-                    <li class="breadcrumb-item"><a href="${path }">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Notice</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">List</li>
-                </ol>
-            </div>
-        </nav>
-        <h2 class="title">공지사항 목록</h2>
-        <p class="msg">${msg }</p>
+        <h2 class="title">공지사항</h2>
+        <p class="msg">관리자만 이용가능합니다.</p>
         <div class="container">
             <div class="box_wrap">
-                <div class="group container">
-                    <a href="${path }/AddNotice.do" class="btn btn-primary">글 등록</a>
-                </div>
-                <table class="table table-secondary" id="tb1">
+                <table class="table" id="tb1">
                     <thead>
                     <tr>
-                        <th class="item1">연번</th>
+                        <th class="item1">번호</th>
                         <th class="item2">제목</th>
                         <th class="item3">작성일</th>
                     </tr>
@@ -73,20 +145,22 @@
                     <tr>
                         <td class="item1">${status.count }</td>
                         <td class="item2">
-                            <a href="${path }/AdminNotice.do?no=${noti.no }">${noti.title }</a>
+                            <a href="${path }/AdminNotice.do?no=${noti.no }" class="al">${noti.title }</a>
                         </td>
                         <td class="item3">${noti.resdate }</td>
                     </tr>
                     </c:forEach>
                     </tbody>
                 </table>
+                <div class="group container">
+                    <a href="${path }/AddNotice.do" class="btn">글 등록</a>
+                </div>
                 <nav aria-label="Page navigation example" id="page-nation1">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <ul class="paginate">
+                        <li class="page-item"><a class="page-link" href="#">◀</a></li>
                         <li class="page-item"><a class="page-link" href="#">1</a></li>
                         <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        <li class="page-item"><a class="page-link" href="#">▶</a></li>
                     </ul>
                 </nav>
             </div>

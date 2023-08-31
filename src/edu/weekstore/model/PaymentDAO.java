@@ -1,6 +1,7 @@
 package edu.weekstore.model;
 
 import edu.weekstore.dto.*;
+import edu.weekstore.dto.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -36,7 +37,7 @@ public class PaymentDAO {
         }
 
         try {
-            String sql = "SELECT * FROM payment order by sno desc limit 1";
+            String sql = "select * from (SELECT * FROM payment order by sno desc limit 1) as payment";
             pstmt = conn.prepareStatement(sql);
             rs = pstmt.executeQuery();
             if(rs.next()) {
@@ -52,6 +53,7 @@ public class PaymentDAO {
         if (cnt >0 ) {
             cnt = pay.getSno();
         }
+
         return cnt;
     }
 
@@ -65,6 +67,7 @@ public class PaymentDAO {
             pstmt.setInt(1, serv.getPno());
             pstmt.setInt(2, serv.getAmount());
             pstmt.setInt(3, serv.getSprice());
+            pstmt.setInt(4, serv.getSno());
             cnt = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -73,7 +76,6 @@ public class PaymentDAO {
         }
         return cnt;
     }
-
     public int getSno(){
         int sno = 0;
         DBConnect con = new MariaDBCon();

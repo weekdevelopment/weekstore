@@ -3,9 +3,11 @@ package edu.weekstore.controller.admin;
 import edu.weekstore.dto.Notice;
 import edu.weekstore.model.NoticeDAO;
 
-import javax.servlet.*;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -26,7 +28,7 @@ public class AddNoticeProCtrl extends HttpServlet {
         NoticeDAO dao = new NoticeDAO();
         int a = dao.addNotice(noti);
         if(a>0) {
-            response.sendRedirect("/AdminNoticeList.do");
+            response.sendRedirect(request.getContextPath() + "/AdminNoticeList.do");
         } else {
             //request.sendRedirect("/AddNotice.do");
             out.println("<script>history.go(-1);</script>");

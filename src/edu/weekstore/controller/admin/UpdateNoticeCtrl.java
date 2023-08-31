@@ -3,10 +3,15 @@ package edu.weekstore.controller.admin;
 import edu.weekstore.dto.Notice;
 import edu.weekstore.model.NoticeDAO;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+@WebServlet("/UpdateNotice.do")
 public class UpdateNoticeCtrl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

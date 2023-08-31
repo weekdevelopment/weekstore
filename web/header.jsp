@@ -102,7 +102,11 @@
     .section {
         margin-top: 100px;
     }
-    .btn .btn-primary {
+    .btn-primary {
+        background-color: #0B7B20;
+        border-color: #0B7B20;
+    }
+    .btn-primary:hover {
         background-color: #0B7B20;
         border-color: #0B7B20;
     }
@@ -135,6 +139,7 @@
                     </c:if>
                     <c:if test="${sid eq 'admin' }">
                         <li class="nav-item"><a href="${path1 }/Admin.do" class="nav-link">관리자 페이지</a></li>
+                        <li class="nav-item"><a href="${path1 }/Mypage.do" class="nav-link">마이페이지</a></li>
                         <li class="nav-item"><a href="${path1 }/Logout.do" class="nav-link">로그아웃</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link h-nav" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">고객만족센터</a>
@@ -194,7 +199,7 @@
         </li>
         <p class="divider">|</p>
         <li class="nav-item dropdown">
-            <a class="nav-link" data-bs-toggle="dropdown" href="${path1 }/CateProList.do?cate=H" role="button" aria-expanded="false">E-BOOK</a>
+            <a class="nav-link" data-bs-toggle="dropdown" href="${path1 }/ProList.do" role="button" aria-expanded="false">전체 상품보기</a>
         </li>
         <p class="divider">|</p>
         <li class="nav-item dropdown">
