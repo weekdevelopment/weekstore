@@ -25,7 +25,7 @@
         </nav>
         <div class="container-fluid">
             <h2 class="title">상품 등록</h2>
-            <article class="col-9">
+            <article class="col-12">
                 <form name="frm1" id="frm1" action="${path }/AddProductPro.do" method="post" enctype="multipart/form-data">
                     <table class="table">
                         <tbody>

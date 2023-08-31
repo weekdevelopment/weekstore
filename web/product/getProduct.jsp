@@ -10,7 +10,25 @@
     <c:set var="path" value="<%=request.getContextPath() %>" />
     <%@ include file="../common.jsp"%>
     <style>
-    th.item1 { width:16%; }
+        th.item1 { width:16%; }
+
+        .carousel-control-prev, .carousel-control-next {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            font-size: 20px;
+            line-height: 1;
+            color: white;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .carousel-control-prev:focus, .carousel-control-next:focus {
+            outline: none;
+        }
     </style>
 </head>
 <body>
@@ -28,24 +46,38 @@
         </nav>
         <h2 class="title">상품 상세보기</h2>
         <div class="container">
+            <div id="carouselExample" class="carousel slide" style="width: 300px">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <c:if test="${!empty pro.imgSrc1}">
+                            <img src="${path }/storage/${pro.imgSrc1 }" style="max-width:300px;" alt="메인 이미지">
+                        </c:if>
+                    </div>
+                    <div class="carousel-item">
+                        <c:if test="${!empty pro.imgSrc2}">
+                            <img src="${path }/storage/${pro.imgSrc2 }" style="max-width:300px;" alt="서브 이미지1">
+                        </c:if>
+                    </div>
+                    <div class="carousel-item">
+                        <c:if test="${!empty pro.imgSrc3}">
+                            <img src="${path }/storage/${pro.imgSrc3 }" style="max-width:300px;" alt="서브 이미지1">
+                        </c:if>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                    <%--<span class="sr-only" style="color: black">이전</span>--%>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
             <div class="box_wrap">
                 <table class="table table-secondary" id="tb1">
                     <tbody>
-                    <tr>
-                        <td colspan="2">
-                            <c:if test="${!empty pro.imgSrc1}">
-                            <img src="${path }/storage/${pro.imgSrc1 }" style="max-width:300px;" alt="대표 이미지">
-                            </c:if>
-                            <hr>
-                            <c:if test="${!empty pro.imgSrc2}">
-                                <img src="${path }/storage/${pro.imgSrc2 }" style="max-width:300px;" alt="대표 이미지">
-                            </c:if>
-                            <hr>
-                            <c:if test="${!empty pro.imgSrc3}">
-                            <img src="${path }/storage/${pro.imgSrc3 }" style="max-width:300px;" alt="대표 이미지">
-                            </c:if>
-                        </td>
-                    </tr>
                     <tr>
                         <th class="item1">도서 번호</th>
                         <td class="item2">${pro.prono }</td>
@@ -71,7 +103,6 @@
                     <tr>
                         <th>남은 수량</th>
                         <td>
-                            <%--<c:out value="${amount}"/>--%>
                             <c:if test="${amount <= 0}">
                                 <span>절판</span>
                             </c:if>
@@ -80,17 +111,10 @@
                             </c:if>
                         </td>
                     </tr>
-                    <%--<tr>
-                        <td colspan="2">
-                            <c:if test="${!empty pro.imgSrc2}">
-                            <img src="${path }/storage/${pro.imgSrc2 }" style="max-width:300px;" alt="대표 이미지">
-                            </c:if>
-                        </td>
-                    </tr>--%>
                     </tbody>
                 </table>
                 <div class="btn-wrap container">
-                    <a href="${path }/CateProList.do?cate=${pro.cate }" class="btn btn-primary">제품 목록</a>
+                    <a href="${path }/ProList.do" class="btn btn-primary">제품 목록</a>
                     <c:if test="${sid.equals('admin') }">
                         <a href="${path }/AddReceive.do" class="btn btn-primary">상품 입고</a>
                         <a href="${path }/UpdateProduct.do?pno=${pro.pno }" class="btn btn-primary">상품 정보 수정</a>
