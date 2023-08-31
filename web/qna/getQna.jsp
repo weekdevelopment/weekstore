@@ -35,10 +35,10 @@
                 </ol>
             </div>
         </nav>
-        <c:if test="${qna.lev == 0}">
+        <c:if test="${lev == 0}">
             <h2 class="title">QNA 상세보기</h2>
         </c:if>
-        <c:if test="${qna.lev == 1}">
+        <c:if test="${lev == 1}">
             <h2 class="title">답변 상세보기</h2>
         </c:if>
         <div class="container">
@@ -47,7 +47,7 @@
                     <tbody>
                     <tr>
                         <th>글 번호</th>
-                        <td>${qna.qno }</td>
+                        <td>${qno }</td>
                     </tr>
                     <tr>
                         <th>글 제목</th>
@@ -70,7 +70,7 @@
                 <div class="btn-group">
                     <a href="${path }/QnaList.do" class="btn btn-primary" style="background-color: #0B7B20">QNA 목록</a>
                     <c:if test="${!empty sid}">
-                        <a href="${path }/AddQna.do?lev=1&par=${qna.qno }" class="btn btn-primary" style="background-color: #0B7B20">답변 등록</a>
+                        <a href="${path }/AddQna.do?lev=1&par=${qno }" class="btn btn-primary" style="background-color: #0B7B20">답변 등록</a>
                         <a href="${path }/" class="btn btn-primary" style="background-color: #0B7B20">수정</a>
                         <a href="${path }/" class="btn btn-primary" style="background-color: #0B7B20">삭제</a>
                     </c:if>

@@ -1,6 +1,16 @@
+<%@ page import="edu.weekstore.model.ProductDAO" %>
+<%@ page import="edu.weekstore.dto.Product" %>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%
+    ProductDAO dao = new ProductDAO();
+    Product bestPro = dao.getBestProduct();
+    request.setAttribute("bestPro",bestPro);
+
+    Product newPro = dao.getNewProduct();
+    request.setAttribute("newPro",newPro);
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
