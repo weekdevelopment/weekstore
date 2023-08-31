@@ -138,7 +138,20 @@
                         </li>
                     </c:if>
                     <c:if test="${sid eq 'admin' }">
-                        <li class="nav-item"><a href="${path1 }/Admin.do" class="nav-link">관리자 페이지</a></li>
+                        <%--<li class="nav-item"><a href="${path1 }/Admin.do" class="nav-link">관리자 페이지</a></li>--%>
+                        <li class="nav-item dropdown">
+                            <a href="${path1 }/Admin.do" class="nav-link">관리자 페이지</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="${path1 }/ProList.do">상품목록</a></li>
+                                <li><a class="dropdown-item" href="${path1 }/AddProduct.do">상품등록</a></li>
+                                <li><a class="dropdown-item" href="${path1 }/AddReceive.do">상품입고</a></li>
+                                <li><a class="dropdown-item" href="${path1 }/">배송목록</a></li>
+                                <li><a class="dropdown-item" href="${path1 }/">회원목록</a></li>
+                                <li><a class="dropdown-item" href="${path1 }/">공지사항목록</a></li>
+                                <li><a class="dropdown-item" href="${path1 }/">이벤트목록</a></li>
+                            </ul>
+                        </li>
+
                         <li class="nav-item"><a href="${path1 }/Mypage.do" class="nav-link">마이페이지</a></li>
                         <li class="nav-item"><a href="${path1 }/Logout.do" class="nav-link">로그아웃</a></li>
                         <li class="nav-item dropdown">
