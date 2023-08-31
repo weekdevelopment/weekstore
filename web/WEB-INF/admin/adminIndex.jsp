@@ -67,7 +67,7 @@
                     </tr>
                     <tr>
                         <th>배송목록</th>
-                        <td><a href="" class="btn btn-primary">배송목록</a></td>
+                        <td><a href="${path }/AdminDeliveryList.do" class="btn btn-primary">배송목록</a></td>
                     </tr>
                     <tr>
                         <th>회원목록</th>
