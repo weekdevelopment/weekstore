@@ -90,7 +90,7 @@
                     </tbody>
                 </table>
                 <div class="btn-wrap container">
-                    <a href="${path }/ProList.do" class="btn btn-primary">제품 목록</a>
+                    <a href="${path }/CateProList.do?cate=${pro.cate }" class="btn btn-primary">제품 목록</a>
                     <c:if test="${sid.equals('admin') }">
                         <a href="${path }/AddReceive.do" class="btn btn-primary">상품 입고</a>
                         <a href="${path }/UpdateProduct.do?pno=${pro.pno }" class="btn btn-primary">상품 정보 수정</a>

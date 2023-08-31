@@ -102,7 +102,11 @@
     .section {
         margin-top: 100px;
     }
-    .btn .btn-primary {
+    .btn-primary {
+        background-color: #0B7B20;
+        border-color: #0B7B20;
+    }
+    .btn-primary:hover {
         background-color: #0B7B20;
         border-color: #0B7B20;
     }
@@ -195,7 +199,7 @@
         </li>
         <p class="divider">|</p>
         <li class="nav-item dropdown">
-            <a class="nav-link" data-bs-toggle="dropdown" href="${path1 }/CateProList.do?cate=H" role="button" aria-expanded="false">E-BOOK</a>
+            <a class="nav-link" data-bs-toggle="dropdown" href="${path1 }/ProList.do" role="button" aria-expanded="false">전체 상품보기</a>
         </li>
         <p class="divider">|</p>
         <li class="nav-item dropdown">
