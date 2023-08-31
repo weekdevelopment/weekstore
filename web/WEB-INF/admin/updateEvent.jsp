@@ -36,7 +36,7 @@
 
         .title {
             line-height: 55px;
-            margin-top: 55px;
+            margin-top: 135px;
             text-align: center;
         }
 
@@ -60,7 +60,7 @@
         <h2 class="title">이벤트 수정하기</h2>
         <div class="container">
             <div class="box_wrap">
-                <form action="${path }/UpdatEventPro.do" method="post">
+                <form action="${path }/UpdateEventPro.do" method="post">
                     <table class="table table-secondary" id="tb1">
                         <tbody>
                         <tr>

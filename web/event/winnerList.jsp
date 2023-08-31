@@ -14,6 +14,10 @@
 
     <style>
 
+        #container {
+            margin-top: 165px;
+        }
+
         .title {
             margin-top: 55px;
             text-align: center;
@@ -90,6 +94,12 @@
             padding-left: 2rem;
         }
 
+        .container:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
         .tab {
             position: relative;
             display: flex;
@@ -128,7 +138,7 @@
 <div class="container-fluid">
     <%@ include file="../header.jsp"%>
     <h2 class="title"></h2>
-    <div class="container">
+    <div class="container" id="container">
         <ul class="tab">
             <li>
                 <a href="${path }/EventList.do" >이벤트</a>

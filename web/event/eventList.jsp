@@ -14,6 +14,10 @@
 
     <style>
 
+        #container {
+            margin-top: 165px;
+        }
+
         .event-item ul {
             padding: 0;
         }
@@ -179,7 +183,7 @@
 <div class="container-fluid">
     <%@ include file="../header.jsp"%>
     <h2 class="title"></h2>
-    <div class="container">
+    <div class="container" id="container">
         <ul class="tab">
             <li>
                 <a href="${path }/event/eventList.jsp" class="active">이벤트</a>
