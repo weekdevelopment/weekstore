@@ -38,7 +38,7 @@ public interface DBConnect {
     final static String PRODUCT_SELECT_ONE = "select * from product where pno=?";
     final static String PRODUCT_SELECT_NEW = "select * from (select * from product order by pno desc limit 1) as product";
     //final static String PRODUCT_SELECT_BEST = "select * from (select * from product where pno in (select pno from payment group by pno order by sum(amount) desc limit 1)) as product";
-    final static String PRODUCT_SELECT_BEST = "SELECT * FROM product WHERE pno IN (SELECT pno FROM (SELECT pno, SUM(amount) as total_amount FROM payment GROUP BY pno ORDER BY total_amount DESC LIMIT 1 ) subquery);";
+    final static String PRODUCT_SELECT_BEST = "SELECT * FROM product WHERE pno IN (SELECT pno FROM (SELECT pno, SUM(amount) as total_amount FROM payment GROUP BY pno ORDER BY total_amount DESC LIMIT 1 ) subquery)";
 
     final static String PRODUCT_INSERT = "insert into product values(default, ?, '', ?, ?, ?, ?, ?, ?, ?, default)";
     //final static String PRODUCT_INSERT_UPDATE = "select * from (update product set prono = concat(cate, pno) where pno in (select pno from product order by resdate desc limit 1)) as product";
