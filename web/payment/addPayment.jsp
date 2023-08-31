@@ -151,7 +151,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <input type="button" id="pay" value="결재" class="btn btn-primary">
+                                <input type="button" id="pay" value="결제" class="btn btn-primary">
                             </td>
                         </tr>
                         </tbody>
