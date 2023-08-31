@@ -129,7 +129,9 @@ public class CustomDAO {
             pstmt.setString(4, user.getTel());
             pstmt.setString(5, user.getEmail());
             pstmt.setString(6, user.getBirth());
-            pstmt.setString(7, user.getAddr());
+            pstmt.setInt(7, user.getJob());
+            pstmt.setString(8, user.getAddr());
+
             cnt = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
