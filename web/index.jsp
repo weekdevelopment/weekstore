@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>윜스토어</title>
     <c:set var="path" value="<%=request.getContextPath() %>" />
-    <script src="../js/jquery-1.10.0.js"></script>
-    <link rel="stylesheet" href="../vdo.css">
+    <script src="js/jquery-1.10.0.js"></script>
+    <link rel="stylesheet" href="vdo.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <style>
@@ -62,8 +62,8 @@
             <section class="player">
                 <div class="vdo_fr">
                     <video id="video">
-                        <source src="../images/demo.mp4" type="video/mp4" />
-                        <source src="../images/demo.ogv" type="video/ogg" />
+                        <source src="images/demo.mp4" type="video/mp4" />
+                        <source src="images/demo.ogv" type="video/ogg" />
                         <source src="./images/demo.webm" type="video/webm" />
                     </video>
                 </div>
@@ -92,7 +92,7 @@
                     <div id="progressBar"></div>
                 </div>
             </section>
-            <script src="../js/vdo.js"></script>
+            <script src="js/vdo.js"></script>
         </div>
         <div class="book-section">
             <p>NEW BOOK</p>
@@ -102,8 +102,8 @@
             <section class="player2">
                 <div class="vdo_fr2">
                     <video id="video2">
-                        <source src="../images/demo2.mp4" type="video/mp4" />
-                        <source src="../images/demo2.ogv" type="video/ogg" />
+                        <source src="images/demo2.mp4" type="video/mp4" />
+                        <source src="images/demo2.ogv" type="video/ogg" />
                         <source src="./images/demo2.webm" type="video/webm" />
                     </video>
                 </div>
@@ -132,7 +132,7 @@
                     <div id="progressBar2"></div>
                 </div>
             </section>
-            <script src="../js/vdo2.js"></script>
+            <script src="js/vdo2.js"></script>
         </div>
     </div>
 </div>
