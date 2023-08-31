@@ -29,17 +29,28 @@ public class CustomDAO {
         return cusList;
     }
 
-    public Custom getCustom(String id){
+    public Custom getCustom(String id) {
         Custom cus = new Custom();
         DBConnect con = new MariaDBCon();
+
+        String qpw = "";
+        String spw = "";
+        String sqpw ="";
+
         try {
             conn = con.connect();
             pstmt = conn.prepareStatement(DBConnect.CUSTOM_SELECT_ONE);
-            pstmt.setString(1, id);
+            pstmt.setString(1,id);
             rs = pstmt.executeQuery();
+
             if(rs.next()){
                 cus.setId(rs.getString("id"));
-                cus.setPw(rs.getString("pw"));
+                try {
+                    qpw=AES256.decryptAES256(rs.getString("pw"), key);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+                cus.setPw(qpw);
                 cus.setName(rs.getString("name"));
                 cus.setPoint(rs.getInt("point"));
                 cus.setGrade(rs.getString("grade"));
@@ -47,6 +58,8 @@ public class CustomDAO {
                 cus.setEmail(rs.getString("email"));
                 cus.setBirth(rs.getString("birth"));
                 cus.setRegdate(rs.getString("regdate"));
+                cus.setJob(rs.getInt("job"));
+                cus.setAddr(rs.getString("addr"));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -142,7 +155,8 @@ public class CustomDAO {
             pstmt.setString(1, user.getPw());
             pstmt.setString(2, user.getTel());
             pstmt.setString(3, user.getEmail());
-            pstmt.setString(4, user.getId());
+            pstmt.setString(4, user.getAddr());
+            pstmt.setString(5, user.getId());
             cnt = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);

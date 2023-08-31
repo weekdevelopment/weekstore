@@ -11,6 +11,6 @@ public class LogoutCtrl extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         session.invalidate();
-        response.sendRedirect("/pro02");
+        response.sendRedirect("/weekstore");
     }
 }
