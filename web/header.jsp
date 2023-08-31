@@ -200,9 +200,9 @@
         <li class="nav-item dropdown">
             <a class="nav-link" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">이벤트</a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">진행 중인 이벤트</a></li>
+                <li><a class="dropdown-item" href="${path }/EventList.do">진행 중인 이벤트</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">당첨자 발표</a></li>
+                <li><a class="dropdown-item" href="${path }/WinnerList.do">당첨자 발표</a></li>
             </ul>
         </li>
     </nav>

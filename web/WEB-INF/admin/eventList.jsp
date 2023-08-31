@@ -14,6 +14,11 @@
 
     <style>
 
+        .title {
+            margin-top: 170px;
+            text-align: center;
+        }
+
         .event-item ul {
             padding: 0;
         }
@@ -86,10 +91,6 @@
             font-weight: 600;
         }
 
-        .title {
-            margin-top: 55px;
-            text-align: center;
-        }
 
         .box_wrap thead th {
             padding: 15px 5px;
@@ -197,7 +198,7 @@
     <%@ include file="/header.jsp"%>
     <h2 class="title">이벤트</h2>
         <p class="msg">관리자만 이용가능합니다.</p>
-    <div class="container">
+    <div class="container" id="container">
         <div class="event-list">
             <c:forEach var="event" items="${eventList }" varStatus="status">
                 <li>

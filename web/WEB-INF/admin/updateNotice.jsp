@@ -35,7 +35,7 @@
         }
 
         .title {
-            line-height: 55px;
+            line-height: 135px;
             margin-top: 55px;
             text-align: center;
         }
