@@ -118,6 +118,7 @@
                     <c:if test="${sid.equals('admin') }">
                         <a href="${path }/AddReceive.do" class="btn btn-primary">상품 입고</a>
                         <a href="${path }/UpdateProduct.do?pno=${pro.pno }" class="btn btn-primary">상품 정보 수정</a>
+                        <a href="${path }/DeleteProduct.do?pno=${pro.pno }" class="btn btn-primary" onclick="return confirmDelete()">상품 정보 삭제</a>
                     </c:if>
                     <c:if test="${!empty sid }">
                         <a href="${path }/AddPayment.do?pno=${pro.pno }" class="btn btn-primary">구매하기</a>
@@ -129,5 +130,11 @@
     </div>
     <%@ include file="../footer.jsp" %>
 </div>
+<script>
+    function confirmDelete() {
+        var confirmed = confirm("이 상품을 삭제하시겠습니까?");
+        return confirmed;
+    }
+</script>
 </body>
 </html>
