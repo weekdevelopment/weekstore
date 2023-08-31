@@ -26,7 +26,7 @@
         <div class="container-fluid">
             <h2 class="title">상품 입고</h2>
             <aside class="col-3">
-                <%@ include file="../adminNav.jsp"%>
+                <!--<%@ include file="../adminNav.jsp"%>-->
             </aside>
             <article class="col-9">
                 <form name="frm1" id="frm1" action="${path }/AddReceivePro.do" method="post">
