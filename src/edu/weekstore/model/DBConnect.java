@@ -80,7 +80,7 @@ public interface DBConnect {
 
     //재고 조회
     final static String INVENTORY_SELECT_ALL = "select * from inventory order by pno desc";
-    final static String INVENTORY_SELECT_ONE = " select a.pno, (a.amount-b.amount) AS amount from sel1 a, sel2 b  WHERE a.pno =?";
+    final static String INVENTORY_SELECT_ONE = " select * from inventory WHERE pno =?";
     //final static String INVENTORY_SELECT_ONE = "select sum(amount) as amount from receive where pno=? group by pno";
 
     //입고 처리
