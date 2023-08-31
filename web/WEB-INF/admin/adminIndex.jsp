@@ -14,71 +14,58 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <style>
+
+        .btn {
+            line-height: 27px;
+            padding: 30px;
+            width: 126px;
+            height: 120px;
+            text-decoration: none;
+            border-radius: 20px;
+            margin: 15px;
+            color: #ffffff;
+        }
+
+        .box_wrap {
+            margin-right: -70px;
+        }
+
+
         #tb1 { width:960px; margin:40px auto; }
-        #tb1 th { background-color: darkgreen; color:#fff; }
-        .title { text-align: center; padding-top: 50px; padding-bottom: 100px; background-color: darkgreen; color: white; border-radius: 25px; margin-top: 10px; margin-bottom: 60px; }
-        .book-section section {
-            display: inline-flex;
-            flex-direction: column;
-        }
-        .book-section span {
-            font-size:26px; text-align: center;  color: #000000; font-weight: 900;
-        }
-        .book-section span:nth-child(3) {
-            font-size:26px; text-align: center;  color: #0B7B20; font-weight: 900;
-        }
-        .book-section p {
-            font-size:26px; text-align: center;  color: #000000; font-weight: 900;
-        }
-        .book-section p:first-child {
-            font-size:26px; text-align: center;  color: #0B7B20; font-weight: 900;
-        }
+        .title { text-align: center; padding-top: 50px; padding-bottom: 20px; border-radius: 25px; margin-top: 10px; margin-bottom: 60px; }
+
+
     </style>
 </head>
 <body>
 <div class="container-fluid">
     <%@ include file="../../header.jsp"%>
     <div class="contents" style="min-height:100vh">
-        <nav aria-label="breadcrumb container-fluid" style="padding-top:28px; border-bottom:2px solid #666;">
-            <div class="container">
-                <ol class="breadcrumb justify-content-end">
-                    <li class="breadcrumb-item"><a href="${path }">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Admin</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">AdminPageList</li>
-                </ol>
-            </div>
-        </nav>
-        <h2 class="title">관리자 페이지 메뉴</h2>
+        <h2 class="title">관리자 페이지</h2>
         <div class="container">
             <div class="box_wrap">
-                <table class="table table-success" id="tb1">
+                <table class="table" id="tb1">
                     <tbody>
                     <tr>
-                        <td><a href="${path }/ProList.do" class="btn">상품목록</a></td>
+                        <td><a href="${path }/ProList.do" class="btn" style="background: #1D7151">상품<br>목록</a></td>
+
+                        <td><a href="${path }/AddProduct.do" class="btn" style="background:  #2E8B57">상품<br>등록</a></td>
+
+                        <td><a href="${path }/AddReceive.do" class="btn" style="background: #3F9D61">상품<br>입고</a></td>
+
+                        <td><a href="${path }/AdminDeliveryList.do" class="btn" style="background: #50AF6B">배송<br>목록</a></td>
                     </tr>
                     <tr>
-                        <td><a href="${path }/AddProduct.do" class="btn">상품등록</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="${path }/AddReceive.do" class="btn">상품입고</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="${path }/AdminDeliveryList.do" class="btn btn-primary">배송목록</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="${path }/AdminNoticeList.do" class="btn btn-warning">공지사항목록</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="${path }/AdminEventList.do" class="btn btn-danger">이벤트목록</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="${path }/AdminWinnerList.do" class="btn btn-danger">당첨자목록</a></td>
+                        <td><a href="${path }/AdminNoticeList.do" class="btn" style="background:#50AF6B">공지사항<br>목록</a></td>
+
+                        <td><a href="${path }/AdminEventList.do" class="btn" style="background: #3F9D61">이벤트<br>목록</a></td>
+
+                        <td><a href="${path }/AdminWinnerList.do" class="btn" style="background:  #2E8B57">당첨자<br>목록</a></td>
+
+                        <td><a href="${path }" class="btn" style="background: #1D7151">메인<br>으로</a></td>
                     </tr>
                     </tbody>
                 </table>
-                <div class="btn-group">
-                    <a href="${path }" class="btn btn-outline-success" style="float: right">메인으로</a>
-                </div>
             </div>
         </div>
     </div>

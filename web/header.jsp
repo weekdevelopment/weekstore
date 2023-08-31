@@ -145,10 +145,9 @@
                                 <li><a class="dropdown-item" href="${path1 }/ProList.do">상품목록</a></li>
                                 <li><a class="dropdown-item" href="${path1 }/AddProduct.do">상품등록</a></li>
                                 <li><a class="dropdown-item" href="${path1 }/AddReceive.do">상품입고</a></li>
-                                <li><a class="dropdown-item" href="${path1 }/">배송목록</a></li>
-                                <li><a class="dropdown-item" href="${path1 }/">회원목록</a></li>
-                                <li><a class="dropdown-item" href="${path1 }/">공지사항목록</a></li>
-                                <li><a class="dropdown-item" href="${path1 }/">이벤트목록</a></li>
+                                <li><a class="dropdown-item" href="${path1 }/AdminDeliveryList.do">배송목록</a></li>
+                                <li><a class="dropdown-item" href="${path1 }/AdminNoticeList.do">공지사항목록</a></li>
+                                <li><a class="dropdown-item" href="${path1 }/AdminEventList.do">이벤트목록</a></li>
                             </ul>
                         </li>
 

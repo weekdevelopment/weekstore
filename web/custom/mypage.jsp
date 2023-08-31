@@ -11,32 +11,38 @@
     <%@ include file="../common.jsp"%>
     <style>
         #tb1 { width:960px; margin:40px auto; }
-        #tb1 th { background-color: darkgreen; color:#fff; }
-        .title { text-align: center; padding-top: 50px; padding-bottom: 100px; background-color: darkgreen; color: white; border-radius: 25px; margin-top: 10px; margin-bottom: 60px; }
+        .title { text-align: center; padding-top: 50px; padding-bottom: 10px; border-radius: 25px; margin-top: 10px; margin-bottom: 60px; }
         .item1 { width:10%; }
         .item2 { width:70%; }
         .item3 { width:10%; }
         .item4 { width:10%; }
         #page-nation1 { width: 960px; margin:20px auto; }
+
+        #tb1 {
+            line-height: 25px;
+            text-align: center;
+        }
+
+        .btn {
+            text-decoration: none;
+            border-radius: 20px;
+            margin: 3px;
+            padding: 4px;
+            float: right;
+            background-color: #1D7151;
+            border-color: #1D7151;
+            color: #ffffff;
+        }
     </style>
 </head>
 <body>
 <div class="container-fluid">
     <%@ include file="../header.jsp"%>
     <div class="contents" style="min-height:100vh">
-        <nav aria-label="breadcrumb container-fluid" style="padding-top:28px; border-bottom:2px solid #666;">
-            <div class="container">
-                <ol class="breadcrumb justify-content-end">
-                    <li class="breadcrumb-item"><a href="${path }">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Custom</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">My Page</li>
-                </ol>
-            </div>
-        </nav>
-        <h2 class="title">내 정보보기</h2>
+        <h2 class="title">마이페이지</h2>
         <div class="container">
             <div class="box_wrap">
-                <table class="table table-success" id="tb1">
+                <table class="table" id="tb1">
                     <tbody>
                     <tr>
                         <th>아이디</th>
@@ -90,9 +96,11 @@
                     </tr>
                     </tbody>
                 </table>
-                <div class="btn-group">
-                    <a href="${path }/MyInfoUpdate.do?id=${cus.id }" class="btn btn-outline-success">회원정보수정</a>
-                    <a href="${path }" class="btn btn-outline-success">메인으로</a>
+                <div class="btn">
+                    <a href="${path }/MyInfoUpdate.do?id=${cus.id }" class="btn">회원정보수정</a>
+                </div>
+                <div class="btn">
+                    <a href="${path }" class="btn">메인으로</a>
                 </div>
             </div>
         </div>
