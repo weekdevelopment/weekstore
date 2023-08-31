@@ -1,4 +1,4 @@
 # weekstore
 
 ## WBS
-![WBS](./readmeimage/weekstoreWBS.pdf)
+![WBS](./readmeimage/weekstoreWBS.jpg)
