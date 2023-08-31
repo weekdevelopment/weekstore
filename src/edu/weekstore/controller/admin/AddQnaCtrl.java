@@ -12,15 +12,10 @@ import java.io.IOException;
 public class AddQnaCtrl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        String sid = (String) session.getAttribute("sid");
 
         int lev = Integer.parseInt(request.getParameter("lev"));
         int par = Integer.parseInt(request.getParameter("par"));
 
-        if(!sid.equals("admin") || sid==null){
-            response.sendRedirect(request.getContextPath());
-        }
 
         String msg = "관리자의 QNA 글 등록폼이 로딩되었습니다.";
 
@@ -29,7 +24,7 @@ public class AddQnaCtrl extends HttpServlet {
         request.setAttribute("par", par);
 
 
-        RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/admin/addQna.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("/qna/addQna.jsp");
         view.forward(request, response);
     }
 }

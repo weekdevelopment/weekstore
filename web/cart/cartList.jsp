@@ -13,17 +13,18 @@
         #tb1 { width:960px; margin:40px auto; }
         #tb1 th { background-color: #0B7B20; color:#fff; }
         .item1 { width:10%; }
-        .item2 { width:70%; }
+        .item2 { width:60%; }
         .item3 { width:10%; }
-        .item4 { width:10%; }
+        .item4 { width:20%; }
         #page-nation1 { width: 960px; margin:20px auto; }
 
         #tb1 td {
             background-color: #d1e7dd;
         }
         .btn-primary {
-            margin: 0px 158px;
+            width: 100px;
         }
+
     </style>
 </head>
 <body>
@@ -47,9 +48,10 @@
                     <table class="table table-secondary" id="tb1">
                         <thead>
                         <tr>
-                            <th class="item1">연번</th>
+                            <th class="item1">번호</th>
                             <th class="item2">상품명</th>
                             <th class="item3">수량</th>
+                            <th class="item4">구매</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -64,6 +66,8 @@
                                 </td>
                                 <td class="item3">
                                     ${cart.amount }
+                                </td>
+                                <td class="item4">
                                     <a href="${path }/AddPayment.do?pno=${cart.pno }&from=cart" class="btn btn-primary">구매하기</a>
                                 </td>
                             </tr>

@@ -40,7 +40,7 @@
                 <table class="table table-secondary" id="tb1">
                     <thead>
                     <tr>
-                        <th class="item1">연번</th>
+                        <th class="item1">번호</th>
                         <th class="item2">결제상품</th>
                         <th class="item3">결제정보</th>
                         <th class="item4">작업</th>

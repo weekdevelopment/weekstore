@@ -20,6 +20,9 @@
     #tb1 td {
         background-color: #d1e7dd;
     }
+    .btn-group {
+        margin: 0px 166px;
+    }
     </style>
 </head>
 <body>
@@ -47,7 +50,7 @@
                     <tbody>
                     <tr>
                         <th>글 번호</th>
-                        <td>${qno }</td>
+                        <td>${qna.qno }</td>
                     </tr>
                     <tr>
                         <th>글 제목</th>
@@ -69,10 +72,12 @@
                 </table>
                 <div class="btn-group">
                     <a href="${path }/QnaList.do" class="btn btn-primary" style="background-color: #0B7B20">QNA 목록</a>
+                    <c:if test="${!empty sid && lev == 0}">
+                        <a href="${path }/AddQna.do?lev=1&par=${qna.qno }" class="btn btn-primary" style="background-color: #0B7B20">답변 등록</a>
+                    </c:if>
                     <c:if test="${!empty sid}">
-                        <a href="${path }/AddQna.do?lev=1&par=${qno }" class="btn btn-primary" style="background-color: #0B7B20">답변 등록</a>
-                        <a href="${path }/" class="btn btn-primary" style="background-color: #0B7B20">수정</a>
-                        <a href="${path }/" class="btn btn-primary" style="background-color: #0B7B20">삭제</a>
+                        <a href="${path }/UpdateQna.do?lev=${qna.lev }&qno=${qna.qno }" class="btn btn-primary" style="background-color: #0B7B20">수정</a>
+                        <a href="${path }/DelQna.do?lev=${qna.lev }&qno=${qna.qno }" class="btn btn-primary" style="background-color: #0B7B20">삭제</a>
                     </c:if>
                 </div>
             </div>
@@ -80,5 +85,6 @@
     </div>
     <%@ include file="../footer.jsp" %>
 </div>
+
 </body>
 </html>

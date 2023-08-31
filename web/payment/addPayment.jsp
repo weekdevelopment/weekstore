@@ -121,9 +121,11 @@
                             <th>구매 수량</th>
                             <td>
                                 <input type="hidden" name="pno" id="pno" value="${pro.pno }" />
-                                <input type="number" name="amount" id="amount" class="form-control" min="1" value="1" max="${amount }" />
                                 <c:if test="${amount==0}">
                                     <strong>절판</strong>
+                                </c:if>
+                                <c:if test="${amount !=0}">
+                                    <input type="number" name="amount" id="amount" class="form-control" min="1" value="1" max="${amount }" />
                                 </c:if>
                             </td>
                         </tr>

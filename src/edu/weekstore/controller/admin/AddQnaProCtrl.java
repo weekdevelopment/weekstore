@@ -21,12 +21,7 @@ public class AddQnaProCtrl extends HttpServlet {
         String content = request.getParameter("content");
         String author = request.getParameter("author");
 
-        HttpSession session = request.getSession();
-        String sid = (String) session.getAttribute("sid");
 
-        if(!sid.equals("admin") || sid==null){
-            response.sendRedirect(request.getContextPath());
-        }
         System.out.println(request.getParameter("lev"));
         System.out.println(request.getParameter("lev"));
 
@@ -35,7 +30,7 @@ public class AddQnaProCtrl extends HttpServlet {
 
         Qna qna = new Qna();
         qna.setTitle(title);
-        qna.setContent(request.getParameter(content));
+        qna.setContent(content);
         qna.setAuthor(author);
         qna.setLev(lev);
         qna.setPar(par);

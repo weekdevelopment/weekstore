@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QNA 글쓰기</title>
     <c:set var="path" value="<%=request.getContextPath() %>" />
-    <%@ include file="../../common.jsp"%>
+    <%@ include file="../common.jsp"%>
     <style>
     #tb1 { width:960px; margin:40px auto; }
     #tb1 th { background-color: #0B7B20; color:#fff; }
@@ -27,7 +27,7 @@
 </head>
 <body>
 <div class="container-fluid">
-    <%@ include file="../../header.jsp"%>
+    <%@ include file="../header.jsp"%>
     <div class="contents" style="min-height:100vh">
         <nav aria-label="breadcrumb container-fluid" style="padding-top:28px; border-bottom:2px solid #666;">
             <div class="container">
@@ -85,7 +85,7 @@
             </div>
         </div>
     </div>
-    <%@ include file="../../footer.jsp" %>
+    <%@ include file="../footer.jsp" %>
 </div>
 </body>
 </html>
