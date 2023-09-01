@@ -1,3 +1,4 @@
 # weekstore
 
-![](./readmeimage/1.jpg)
+
+![weekstore](./readmeimage/1.jpg)
