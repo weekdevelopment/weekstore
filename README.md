@@ -10,7 +10,7 @@
 ![weekstore](./WeekStorePresentation/10.jpg)
 ![weekstore](./WeekStorePresentation/11.jpg)
 ![weekstore](./WeekStorePresentation/12.jpg)
-![weekstore](./WeekStorePresentation/weekstore_usecase.png)
+![weekstore](./WeekStorePresentation/weekstore_usecase2.png)
 ![weekstore](./WeekStorePresentation/14.jpg)
 ![weekstore](./WeekStorePresentation/15.jpg)
 ![weekstore](./WeekStorePresentation/16.jpg)
