@@ -1,5 +1,6 @@
 ![weekstore](./WeekStorePresentation/1.jpg)
 ![weekstore](./WeekStorePresentation/2.jpg)
+![weekstore](./WeekStorePresentation/teamphoto.jpg)
 ![weekstore](./WeekStorePresentation/3.jpg)
 ![weekstore](./WeekStorePresentation/4.jpg)
 ![weekstore](./WeekStorePresentation/5.jpg)
