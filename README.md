@@ -10,7 +10,9 @@
 ![weekstore](./WeekStorePresentation/10.jpg)
 ![weekstore](./WeekStorePresentation/11.jpg)
 ![weekstore](./WeekStorePresentation/12.jpg)
-![weekstore](./WeekStorePresentation/13.jpg)
+![weekstore](./WeekStorePresentation/weekstore_usecase2.png)
+### 논리적 설계
+![weekstore](./WeekStorePresentation/erd.drawio.png)
 ![weekstore](./WeekStorePresentation/14.jpg)
 ![weekstore](./WeekStorePresentation/15.jpg)
 ![weekstore](./WeekStorePresentation/16.jpg)
