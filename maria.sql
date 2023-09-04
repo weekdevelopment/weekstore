@@ -14,11 +14,13 @@ job INT DEFAULT 0,  -- 직업코드 0:학생, 1:학부모, 2: 교사
 addr VARCHAR(500)
 );
 
-INSERT INTO	custom VALUES('admin','1234','관리자',DEFAULT,DEFAULT,'01012341234','admin@weekstore.com','1900-01-01',DEFAULT,2,'서울');
+INSERT INTO custom VALUES('admin','1234','관리자',DEFAULT,DEFAULT,'01012341234','admin@weekstore.com','1900-01-01',DEFAULT,2,'서울');
+INSERT INTO custom VALUES('kim','7979','김민수',DEFAULT,DEFAULT,'01020003000','kim@weekstore.com','1992-01-23',DEFAULT,2,'서울');
+INSERT INTO custom VALUES('lee','1004','이지훈',DEFAULT,DEFAULT,'01030004000','lee@weekstore.com','2000-12-31',DEFAULT,2,'서울');
 
-INSERT INTO	custom VALUES('kim','7979','김민수',DEFAULT,DEFAULT,'01012341234','admin@weekstore.com','1992-01-23',DEFAULT,2,'서울');
+UPDATE custom SET pw='PiaaQ0NRSE2oqCNJjnWMILh7I0NxM41bVTR9vU1Rp60Jy8aFU0UvVRrHZcSHKa2X3xBYxg==' WHERE pw='1234';
 UPDATE custom SET pw='0ick8VOF/t8cMPZQyF9E/uEUVqdwsXt4z4xdT2RTPNOERtNClP/e/yXWJt9ShtJdBdwpCg==' WHERE pw='7979';
-
+UPDATE custom SET pw='lT57o27KGFcAj7lOt7bR+E6M05qDBLEif0H6EJISfb1GtOib0Qxh94Mg3is9X6nfmoj2mw==' WHERE pw='1004';
 
 SELECT * FROM custom;
 
@@ -26,7 +28,6 @@ SELECT * FROM custom;
 CREATE TABLE faq(fno INT PRIMARY KEY AUTO_INCREMENT,
 question VARCHAR(200) NOT NULL,
 answer VARCHAR(1000));
-SELECT * FROM faq;
 
 INSERT INTO faq (question, answer) VALUES 
 ('수업에 필요한 교사용 자료(DVD, PPT 등)는 어디에서 다운받을 수 있나요?', '교사용 자료 이용을 원하시는 선생님들을 위해 무료 온라인 교수 학습 지원 사이트인 T셀파(tsherpa.co.kr)을 운영하고 있습니다. T셀파 사이트에서 별도로 회원 가입을 하신 후, GPKI 인증을 하시면 다양한 자료를 이용하실 수 있습니다. 인증을 받지 않으신 선생님은 서비스 이용에 제한이 있으며, 자세한 문의 사항은 T셀파 고객센터 1577-7609로 문의해 주시기 바랍니다.'),
@@ -34,6 +35,8 @@ INSERT INTO faq (question, answer) VALUES
 ('교재에 대한 문의 사항이나 의견이 있어요.', '고객만족센터 > 1:1 문의에서 문의 사항을 남겨 주시면 과목별 담당자의 답변을 받아보실 수 있습니다.'),
 ('교과서, 지도서는 어디에서 구입할 수 있나요?', '천재교과서 발행 교과서 및 지도서는 천재교과서 쇼핑몰 홈페이지(mall.chunjaetext.co.kr)에서 천재교육 발행 교과서 및 지도서는 천재교육 쇼핑몰(mall.chunjae.co.kr)에서 구매하실 수 있습니다. 한국검인정교과서협회(www.ktbook.com)에서도 구매하실 수 있습니다.'),
 ('자습서, 평가문제집을 구매하고 싶어요.', '자습서와 평가문제집은 온라인에서 판매하지 않습니다. 주변의 가까운 서점에서 구매하시기 바랍니다.');
+
+SELECT * FROM faq;
                                           
 
 create table notice(
@@ -142,6 +145,7 @@ insert into notice values (default,
 						   앞으로도 고객 여러분께 더욱 만족스러운 서비스를 제공할 수 있도록 노력하겠습니다.<br>
 						   감사합니다.'
 						   , default);
+
 create table event(
    no serial primary key,
    title varchar(200) not null,
@@ -233,7 +237,6 @@ insert into winner values (default,
 select * from winner;
 
 
-
 -- 입고테이블
 create table receive(
   rno int auto_increment primary key,
@@ -305,7 +308,6 @@ insert into qna(title, content, author, lev, par) values('질문4 답변', '답�
 insert into qna(title, content, author, lev, par) values('질문5 답변', '답변 내용', 'admin', 1, 5);
 insert into qna(title, content, author, lev, par) values('질문6 답변', '답변 내용', 'admin', 1, 6);
 
-
 -- qnalist view
 CREATE VIEW qnalist AS (SELECT a.qno AS qno,board a.title AS title, a.content AS content,
 a.author AS author, a.resdate AS resdate, a.cnt AS cnt, a.lev AS lev, a.par AS par, b.name AS NAME
@@ -315,9 +317,6 @@ FROM qna a, custom b WHERE a.author=b.id ORDER BY a.par DESC, a.lev ASC, a.qno A
 create view sel1 as (select pno, sum(amount) as amount from receive group by pno);
 create view sel2 as (select pno, sum(amount) as amount from serve group by pno);
 create view inventory as (select a.pno, (a.amount-b.amount) AS amount from sel1 a, sel2 b  WHERE a.pno = b.pno);
-
-
-
 
 -- 상품 테이블 생성
 CREATE TABLE product(pno INT PRIMARY KEY AUTO_INCREMENT,
@@ -366,25 +365,14 @@ CREATE TABLE review(
 	resdate TIMESTAMP DEFAULT current_TIMESTAMP
 );
 
-
-SELECT * FROM qna;
-team21SELECT * FROM custom;
-
-
-SELECT * FROM product;
 INSERT INTO product VALUES(DEFAULT, 'F', '', '고등 연극(구민정)', '설명', '목차', 9500, 
 'https://mall.chunjaetext.co.kr/web/product/big/20200417/29cf8e69442cefdc8222ff76495513f2.jpg',
 'https://mall.chunjaetext.co.kr/web/product/high/%EA%B3%A0%EB%93%B1_%EA%B5%90%EA%B3%BC%EC%84%9C_%EC%97%B0%EA%B7%B9(%EA%B5%AC%EB%AF%BC%EC%A0%95)-1%20copy.jpg', 
 'https://mall.chunjaetext.co.kr/web/product/high/%EA%B3%A0%EB%93%B1_%EA%B5%90%EA%B3%BC%EC%84%9C_%EC%97%B0%EA%B7%B9(%EA%B5%AC%EB%AF%BC%EC%A0%95)-2%20copy.jpg', 
  DEFAULT)
--- UPDATE product SET prono = concat(cate, pno) WHERE pno=3;
-
-UPDATE product SET prono = concat(cate, pno);
-
 
 INSERT INTO product VALUES(DEFAULT, 'B', '', '초등 미술(안금희) 3', '설명', '목차', 5000, 
 'e3a0.jpg', 'e3a1.jpg', 'e3a2.jpg', DEFAULT);
-
 
 INSERT INTO product VALUES(DEFAULT, 'B', '', '초등 음악(양종모) 3', '설명', '목차', 4000, 
 'e3m0.jpg', 'e3m1.jpg', 'e3m2.jpg', DEFAULT);
@@ -392,35 +380,13 @@ INSERT INTO product VALUES(DEFAULT, 'B', '', '초등 음악(양종모) 3', '설�
 INSERT INTO product VALUES(DEFAULT, 'B', '', '초등 사회 4-1(박용조)', '설명', '목차', 7000, 
 'e4s0.jpg', 'e4s1.jpg', 'e4s2.jpg', DEFAULT);
 
-
 INSERT INTO product VALUES(DEFAULT, 'D', '', '중학 컴퓨팅과융합(김성백)', '설명', '목차', 10000, 
 'mc0.jpg', 'mc1.jpg', 'mc2.jpg', DEFAULT);
 
 INSERT INTO product VALUES(DEFAULT, 'D', '', '중학 보건(유인숙)', '설명', '목차', 7000, 
 'mh0.jpg', 'mh1.jpg', 'mh2.jpg', DEFAULT);
 
-
 INSERT INTO product VALUES(DEFAULT, 'D', '', '중학 생활일본어(박민영)', '설명', '목차', 9000, 
 'mj0.jpg', 'mj1.jpg', 'mj2.jpg', DEFAULT);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+UPDATE product SET prono = concat(cate, pno);
