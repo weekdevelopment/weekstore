@@ -11,8 +11,21 @@
 ![weekstore](./WeekStorePresentation/11.jpg)
 ![weekstore](./WeekStorePresentation/12.jpg)
 ![weekstore](./WeekStorePresentation/weekstore_usecase2.png)
-### 논리적 설계
+## 논리적 설계
 ![weekstore](./WeekStorePresentation/erd.drawio.png)
+## 물리적 설계
+![weekstore](./WeekStorePresentation/erd1.jpg)
+![weekstore](./WeekStorePresentation/erd2.jpg)
+![weekstore](./WeekStorePresentation/erd3.jpg)
+![weekstore](./WeekStorePresentation/erd4.jpg)
+![weekstore](./WeekStorePresentation/erd5.jpg)
+![weekstore](./WeekStorePresentation/erd6.jpg)
+![weekstore](./WeekStorePresentation/erd7.jpg)
+![weekstore](./WeekStorePresentation/erd8.jpg)
+![weekstore](./WeekStorePresentation/erd9.jpg)
+![weekstore](./WeekStorePresentation/erd10.jpg)
+![weekstore](./WeekStorePresentation/erd11.jpg)
+![weekstore](./WeekStorePresentation/erd12.jpg)
 ![weekstore](./WeekStorePresentation/14.jpg)
 ![weekstore](./WeekStorePresentation/15.jpg)
 ![weekstore](./WeekStorePresentation/16.jpg)
